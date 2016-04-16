@@ -1,0 +1,25 @@
+﻿@using Website.Models
+<!DOCTYPE html>
+
+<div>
+    @{
+        var current = System.Web.HttpContext.Current;
+        var auth = current.Session["authorized"];
+        if (auth != null && (bool)auth)
+        {
+            var user = (User)current.Session["currentUser"];
+            if (!string.IsNullOrEmpty(user?.FirstName))
+            {
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a>
+                            @("Hello " + user.FirstName + "!")
+                        </a>
+                    </li>
+                    <li>@Html.ActionLink("Log off", "Logout", "Home")</li>
+                </ul>
+            }
+
+        }
+    }
+</div>

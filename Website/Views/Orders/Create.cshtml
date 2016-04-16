@@ -1,0 +1,116 @@
+﻿@using BLL.Extensions
+@using Website.Models
+@model List<Website.Models.Order>
+
+
+<div>
+    @Html.ActionLink("View Orders", "List")
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Alcohol</h3>
+            @{
+                var stock = (List<StockItem>)ViewBag.stock;
+                var alcohol = stock.Where(w => w.CategoryId == (int)Enums.DrinkCategory.Alcohol);
+                foreach (var order in alcohol)
+                {
+                    <text>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                    </text>
+                }
+            }
+
+        </div>
+        <div class="col-lg-4">
+            <h3>Non-alcohol</h3>
+            @{
+                var nonAlcohol = stock.Where(w => w.CategoryId == (int)Enums.DrinkCategory.NonAlcohol);
+                foreach (var order in nonAlcohol)
+                {
+                    <text>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                    </text>
+                }
+            }
+
+
+        </div>
+        <div class="col-lg-4">
+            <h3>Summary</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>SubTotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="orderListDetail"></tbody>
+            </table>
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Total</th>
+                        <th id="totalQuantity">0</th>
+                        <th id="totalPrice">0</th>
+                    </tr>
+                </thead>
+            </table>
+            <br />
+            <button type="button" onclick="createOrder(@stock.Count);" class="btn btn-success">Create order</button>
+        </div>
+    </div>
+
+                }
+
+<script>
+    function createOrder(totalStockItems) {
+
+        var orderItems = new Array();
+        var quantity;
+
+
+        for (var id = 1; id < totalStockItems + 1; id++) {
+            var quantityString = $('#orderQuantity_' + id);
+
+            if (quantityString == undefined || quantityString.length == 0) continue;
+
+            quantity = parseFloat(quantityString[0].innerHTML);
+            var orderItem = {
+                "StockItemId": id,
+                "Quantity": quantity
+            };
+
+            orderItems.push(orderItem);
+
+        }
+
+    
+
+        $.ajax({
+            type: "POST",
+            url: "Create",
+            contentType: "application/json",
+            data: JSON.stringify(orderItems)
+        });
+    }
+</script>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

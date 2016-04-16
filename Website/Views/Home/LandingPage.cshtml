@@ -1,0 +1,32 @@
+﻿@using BLL.Extensions
+@model Website.Models.User
+
+
+<h2>Welcome @Html.DisplayFor(l => l.FirstName)</h2>
+Please select your choice
+<br />
+<br />
+
+<div class="row">
+    <div class="col-lg-3 text-center">
+
+        @*@using (Html.BeginForm("Index", "Orders", FormMethod.Get))
+        {*@
+        <input type="button" onclick="location.href = '@Url.Action("Index", "Orders")'" style="width: 200px; height: 200px; font-size: 35px" class="btn btn-info" value="Orders" />
+        @*}*@
+    </div>
+
+    @if (Model.UserRole == (int)Enums.UserRole.Administrator)
+    {
+        <div class="col-lg-3 text-center">
+            <input type="button" onclick="location.href = '@Url.Action("Index", "Users")'" style="width: 200px; height: 200px; font-size: 35px" class="btn btn-danger" value="Employees"/>
+        </div>
+        <div class="col-lg-3 text-center">
+            <input type="button" onclick="location.href = '@Url.Action("Index", "Stock")'" style="width: 200px; height: 200px; font-size: 35px" class="btn btn-primary" value="StockItem"/>
+        </div>
+    }
+
+    <div class="col-lg-3 text-center">
+        <button style="width: 200px; height: 200px; font-size: 35px" class="btn btn-danger">Statistics</button>
+    </div>
+</div>

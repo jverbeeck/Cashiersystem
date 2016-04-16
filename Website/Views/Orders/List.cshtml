@@ -1,0 +1,75 @@
+﻿@model System.Collections.Generic.List<Website.Models.Order>
+
+<h2>List orders</h2>
+
+
+<div class="row">
+
+    @{
+        foreach (var order in Model)
+        {
+            <text>
+                <div class="col-md-8" id="listOrders">
+
+                    <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Order @order.OrderId</button>
+
+                </div>
+                <div class="col-md-4 hidden" id="listOrderDetail_@order.OrderId">
+                    <h3>Summary</h3>
+
+                    <table id="OrderDetail" class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>SubTotal</th>
+                            </tr>
+                        </thead>
+
+                        @{
+                            foreach (var orderItem in order.OrderItems)
+                            {
+                                <tbody id="orderListDetail">
+                                    <tr>
+                                        <td>@orderItem.Name</td>
+                                        <td>@orderItem.Quantity</td>
+                                        <td>@orderItem.UnitPrice</td>
+                                        <td>@orderItem.SubTotal</td>
+                                    </tr>
+                                </tbody>
+                            }
+                        }
+                    </table>
+
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Total</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>@order.TotalQuantity</td>
+                                <td>@order.TotalPrice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <button type="button" onclick="ConfirmOrder();" class="btn btn-success">Edit order</button>
+                    <button type="button" onclick="ConfirmOrder();" class="btn btn-success">Confirm order</button>
+                </div>
+            </text>
+                            }
+
+    }
+
+</div>

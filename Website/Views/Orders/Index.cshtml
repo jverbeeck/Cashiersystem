@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Website.Models.Order>
+
+<br/>
+<h1>Orders</h1>
+<br />
+<br />
+
+<div class="row">
+
+    <div class="col-lg-6 text-center">
+        <input type="button" onclick="location.href = '@Url.Action("List")'" style="width: 200px; height: 200px; font-size: 35px" class="btn btn-danger" value="List"/>
+    </div>
+    <div class="col-lg-6 text-center">
+        <input type="button" onclick="location.href = '@Url.Action("Create")'" style="width: 200px; height: 200px; font-size: 35px" class="btn btn-primary" value="Create"/>
+    </div>
+</div>
