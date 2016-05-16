@@ -26,16 +26,20 @@ namespace Website.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(List<User> users)
+        public ActionResult Login(string username, string password)
         {
-
-            var checkUser = DataAccess.GetUserByUsername(users.First());
-            if (checkUser != null)
+            
+            if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                System.Web.HttpContext.Current.Session["authorized"] = true;
-                System.Web.HttpContext.Current.Session["currentUser"] = checkUser;
-                //return RedirectToAction("LandingPage", user);
-                return View("LandingPage", checkUser);
+                var user = new User { FirstName = username, Password = password };
+                var userExists = DataAccess.CheckIfUserExists(user);
+                if (userExists)
+                {
+                    System.Web.HttpContext.Current.Session["authorized"] = true;
+                    System.Web.HttpContext.Current.Session["currentUser"] = user;
+                    //return RedirectToAction("LandingPage", user);
+                    return View("LandingPage");
+                }
             }
             ModelState.AddModelError("MessageError", "Credentials are incorrect");
             return View("Index", _users);

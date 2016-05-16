@@ -1,33 +1,104 @@
-﻿@model Website.Models.Order
+﻿@using BLL.Extensions
+@using Website.Models
+@model List<Website.Models.Order>
 
-@{
-    ViewBag.Title = "Edit";
-}
 
-<h2>Edit</h2>
-
+<div>
+    @Html.ActionLink("View Orders", "List")
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Order</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.OrderId)
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <h3>Alcohol</h3>
+            @{
+                var stock = (List<StockItem>)ViewBag.stock;
+                var alcohol = stock.Where(w => w.CategoryId == (int)Enums.DrinkCategory.Alcohol);
+                foreach (var order in alcohol)
+                {
+                    <text>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                    </text>
+                }
+            }
+
+        </div>
+        <div class="col-lg-4">
+            <h3>Non-alcohol</h3>
+            @{
+                var nonAlcohol = stock.Where(w => w.CategoryId == (int)Enums.DrinkCategory.NonAlcohol);
+                foreach (var order in nonAlcohol)
+                {
+                    <text>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                    </text>
+                }
+            }
+
+
+        </div>
+        <div class="col-lg-4">
+            <h3>Summary</h3>
+
+            @{
+                var currentOrder = (Order)ViewBag.CurrentOrder;
+            }
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>SubTotal</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody id="orderListDetail">
+                    @{
+                        foreach (var orderItem in currentOrder.OrderItems)
+                        {
+                            <text>
+                                <tr id="orderRow_@orderItem.StockItemId">
+                                    <td>@orderItem.Name</td>
+                                    <td id="orderQuantity_@orderItem.StockItemId">@orderItem.Quantity</td>
+                                    <td>@orderItem.UnitPrice</td>
+                                    <td id="subTotal_@orderItem.StockItemId">@orderItem.SubTotal</td>
+                                    <td><a onclick='deleteOrder(@orderItem.OrderItemId , @orderItem.UnitPrice)'><span style='font-size:25px;' class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>
+                                </tr>
+                            </text>
+                        }
+                    }
+
+                </tbody>
+            </table>    
+
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Total</th>
+                        <th id="totalQuantity">@currentOrder.TotalQuantity</th>
+                        <th id="totalPrice">@currentOrder.TotalPrice</th>
+                    </tr>
+                </thead>
+            </table>
+            <br />
+            <button type="button" onclick="updateOrderInDB(@stock.Count);" class="btn btn-success">Update order</button>
         </div>
     </div>
-}
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+                        }
+
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

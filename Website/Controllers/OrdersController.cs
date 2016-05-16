@@ -74,19 +74,23 @@ namespace Website.Controllers
         }
 
         // GET: Orders/Edit/5
-        //public ActionResult Edit(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Order order = db.Orders.Find(id);
-        //    if (order == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(order);
-        //}
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Order order = db.Orders.Find(id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.stock = DataAccess.GetStockItems();
+            ViewBag.CurrentOrder = order;
+
+            return View(db.Orders.ToList());
+        }
 
         //// POST: Orders/Edit/5
         //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 

@@ -12,6 +12,9 @@
     @Html.AntiForgeryToken()
 
     <div class="row">
+        @Html.Label("Insert the table number:", new { @class = "control-label" , @style = "margin-left: 18px;" })
+        @Html.TextBox("tableNumber", "", new { style = "width: 50px;" })
+
         <div class="col-lg-4">
             <h3>Alcohol</h3>
             @{
@@ -20,7 +23,7 @@
                 foreach (var order in alcohol)
                 {
                     <text>
-                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name', @order.Price, @order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
                     </text>
                 }
             }
@@ -33,7 +36,7 @@
                 foreach (var order in nonAlcohol)
                 {
                     <text>
-                        <button type="button" onclick="addOrUpdateOrder('@order.Name',@order.Price,@order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
+                        <button type="button" onclick="addOrUpdateOrder('@order.Name', @order.Price, @order.StockItemId)" class="btn btn-primary btn-add-order">@order.Name</button>
                     </text>
                 }
             }
@@ -76,38 +79,6 @@
 
                 }
 
-<script>
-    function createOrder(totalStockItems) {
-
-        var orderItems = new Array();
-        var quantity;
-
-
-        for (var id = 1; id < totalStockItems + 1; id++) {
-            var quantityString = $('#orderQuantity_' + id);
-
-            if (quantityString == undefined || quantityString.length == 0) continue;
-
-            quantity = parseFloat(quantityString[0].innerHTML);
-            var orderItem = {
-                "StockItemId": id,
-                "Quantity": quantity
-            };
-
-            orderItems.push(orderItem);
-
-        }
-
-    
-
-        $.ajax({
-            type: "POST",
-            url: "Create",
-            contentType: "application/json",
-            data: JSON.stringify(orderItems)
-        });
-    }
-</script>
 
 
 
