@@ -73,7 +73,8 @@
                 </thead>
             </table>
             <br />
-            <button type="button" onclick="createOrder(@stock.Count);" class="btn btn-success">Create order</button>
+            <button type="button" onclick="createOrUpdateOrder(@stock.Count);" class="btn btn-success">Create order</button>
+            <button type="button" onclick="confirmOrder(@stock.Count,0,@((int)Enums.Scenario.Create));" class="btn btn-success">Confirm order</button>
         </div>
     </div>
 

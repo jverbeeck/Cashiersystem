@@ -10,7 +10,6 @@ namespace Website.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "Website.DAL.CashierContext";
         }
 
         protected override void Seed(Website.DAL.CashierContext context)

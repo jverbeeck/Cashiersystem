@@ -91,3 +91,7 @@ textarea {
     color: red;
     padding: 5px;
 }
+
+.input-confirm {
+    width: inherit;
+}

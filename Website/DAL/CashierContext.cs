@@ -18,7 +18,7 @@ namespace Website.DAL
         public DbSet<Order> Orders { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<StockItem> StockItems { get; set; }
-        //public DbSet<Stock> Stock { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

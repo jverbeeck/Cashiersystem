@@ -19,5 +19,11 @@ namespace BLL.Extensions
             Alcohol = 1,
             NonAlcohol = 2
         }
+
+        public enum Scenario
+        {
+            Create = -1,
+            Update = -2
+        }
     }
 }

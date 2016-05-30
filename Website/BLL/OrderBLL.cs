@@ -9,7 +9,7 @@ namespace Website.BLL
 {
     public static class OrderBLL
     {
-        public static Order CreateOrder(OrderItem[] orderItems)
+        public static Order CreateOrder(List<OrderItem> orderItems, string tableNumber)
         {
             var order = new Order { HasConfirmed = false };
 
@@ -28,9 +28,11 @@ namespace Website.BLL
                 order.TotalQuantity += orderItem.Quantity;
             }
 
+            order.TableNumber = string.IsNullOrEmpty(tableNumber) ? 0 : int.Parse(tableNumber);
             order.OrderItems = orderItems.ToList();
 
             return order;
         }
-    }
+
+     }
 }

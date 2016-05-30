@@ -3,8 +3,6 @@ $(document).ready(function () {
     $('#loginForm').hide();
 });
 
-
-
 function setLoginName(name) {
     //$('#selectedLogin').html(name);
     $('#hdnLoginField').val(name);
@@ -20,11 +18,35 @@ function setLoginName(name) {
 
     $('#loginForm').show();
 
-
-
     showPasscodeBox();
+}
+
+//INPUTBOX CONFIRM
+
+function setInputBox(code) {
+    var inputBox = $('#inputBox').val();
+
+    if (inputBox.length >= 0 && inputBox.length < 5) {
+        $('#inputBox').val(inputBox + code.toString());
+    }
+}
+
+function resetInputBox() {
+    $('#inputBox').val("");
+}
+
+function calculate() {
+    var total = parseFloat($('#totalPrice').val());
+    var amount = parseFloat($('#inputBox').val());
+    var calculatedAmount = total - amount;
+
+    console.log(calculatedAmount);
+
+    $('#amountToReturn').val(calculatedAmount);
 
 }
+
+ //LOGIN - PASSCODEBOX
 
 function setPasscode(code) {
     var inputBox = $('#passcodeBox').val();
@@ -84,10 +106,11 @@ function submit() {
     }
 }
 
+ //ORDERS
+
 function showOrderDetail(id) {
     $('#listOrderDetail_' + id).removeClass("hidden");
     showOrderBox(id);
-
 }
 
 function addOrUpdateOrder(name, price, id) {
@@ -157,7 +180,7 @@ function updateTotal(price, isAddition) {
 
 
 //ORDER _ CREATE
-function createOrder(totalStockItems) {
+function createOrUpdateOrder(totalStockItems, orderId) {
 
     var orderItems = new Array();
     var quantity;
@@ -179,35 +202,91 @@ function createOrder(totalStockItems) {
     }
 
 
+    if (orderId != undefined) {
+        orderItems.push({
+            "StockItemId": -1,
+            "Name": orderId
+        });
+    } else {
+        orderItems.push({
+            "StockItemId": 0,
+            "Name": $('#tableNumber').val()
+        });
+    }
+
 
     $.ajax({
         type: "POST",
         url: "Create",
         contentType: "application/json",
         data: JSON.stringify(orderItems)
+    }).success(function (data) {
+        $("body").html(data);
     });
+
+    //$.post("Create",  JSON.stringify(orderItems), function (details) {
+    //    //$("body").html(details);
+    //});
 }
 
 
 //ORDER _ EDIT
 
-function EditOrder(id) {
+function editOrder(id) {
 
     $.post("Edit", { id: id }, function (details) {
         $("body").html(details);
     });
 }
 
-function updateOrderInDB(orderId) {
-    //todo
+//ORDER _ CONFIRM
+
+function confirmOrder(totalStockItems, orderId, scenario) {
+    var orderItems = new Array();
+    var quantity;
+
+    for (var id = 1; id < totalStockItems + 1; id++) {
+        var quantityString = $('#orderQuantity_' + id);
+
+        if (quantityString == undefined || quantityString.length == 0) continue;
+
+        quantity = parseFloat(quantityString[0].innerHTML);
+        var orderItem = {
+            "StockItemId": id,
+            "Quantity": quantity
+        };
+
+        orderItems.push(orderItem);
+    }
+
+    orderItems.push({
+        "StockItemId": -3,
+        "Name": orderId
+    });
+    orderItems.push({
+        "StockItemId": -4,
+        "Name": $('#tableNumber').val()
+    });
+
+    orderItems.push({
+        "StockItemId": scenario,
+        "Name": "scenario"
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "Confirm",
+        contentType: "application/json",
+        data: JSON.stringify(orderItems)
+    })
+        .success(function (data) {
+            $("body").html(data);
+        });
+
 }
 
-function confirmOrder(orderId) {
-    //todo
-}
 
-
-//LOGIN
+//AlertifyJS
 
 function showPasscodeBox() {
     alertify.genericDialog || alertify.dialog('genericDialog', function () {
@@ -227,7 +306,8 @@ function showPasscodeBox() {
                         basic: true,
                         maximizable: false,
                         resizable: false,
-                        padding: false
+                        padding: false,
+                        transition: 'zoom'
                     }
                 };
             },
@@ -257,7 +337,8 @@ function showOrderBox(id) {
                         basic: true,
                         maximizable: false,
                         resizable: false,
-                        padding: false
+                        padding: false,
+                        transition: 'zoom'
                     }
                 };
             },

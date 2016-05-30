@@ -15,5 +15,7 @@ namespace Website.Models
         public int TotalQuantity { get; set; }
         public double TotalPrice { get; set; }
 
+        public int TableNumber { get; set; }
+
     }
 }

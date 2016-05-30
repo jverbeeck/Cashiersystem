@@ -67,7 +67,7 @@
                                     <td id="orderQuantity_@orderItem.StockItemId">@orderItem.Quantity</td>
                                     <td>@orderItem.UnitPrice</td>
                                     <td id="subTotal_@orderItem.StockItemId">@orderItem.SubTotal</td>
-                                    <td><a onclick='deleteOrder(@orderItem.OrderItemId , @orderItem.UnitPrice)'><span style='font-size:25px;' class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>
+                                    <td><a onclick='deleteOrder(@orderItem.StockItemId , @orderItem.UnitPrice)'><span style='font-size:25px;' class='glyphicon glyphicon-remove' aria-hidden='true'></span></a></td>
                                 </tr>
                             </text>
                         }
@@ -91,7 +91,8 @@
                 </thead>
             </table>
             <br />
-            <button type="button" onclick="updateOrderInDB(@stock.Count);" class="btn btn-success">Update order</button>
+            <button type="button" onclick="createOrUpdateOrder(@stock.Count, @currentOrder.OrderId);" class="btn btn-success">Update order</button>
+            <button type="button" onclick="confirmOrder(@stock.Count,0,@((int)Enums.Scenario.Update));" class="btn btn-success">Confirm order</button>
         </div>
     </div>
 

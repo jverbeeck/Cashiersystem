@@ -4,25 +4,84 @@
     ViewBag.Title = "Confirm";
 }
 
-<h2>Delete</h2>
+<h2>Confirmation page</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Order</h4>
-    <hr />
-    <dl class="dl-horizontal">
-    </dl>
+<div class="col-lg-4">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>SubTotal</th>
+            </tr>
+        </thead>
+        <tbody id="orderListDetail">
+            @{
+                foreach (var orderItem in Model.OrderItems)
+                {
+                    <text>
+                        <tr>
+                            <td>@orderItem.Name</td>
+                            <td id="orderQuantity_@orderItem.StockItemId">@orderItem.Quantity</td>
+                            <td>@orderItem.UnitPrice</td>
+                            <td>@orderItem.SubTotal</td>
+                        </tr>
+                    </text>
+                }
+            }
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
+        </tbody>
+    </table>
 
+    <br />
+    <br />
+    <br />
+    <br />
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Total</th>
+                <th id="totalQuantity">@Model.TotalQuantity</th>
+                <th id="totalPrice">@Model.TotalPrice</th>
+            </tr>
+        </thead>
+    </table>
 
+</div>
+<div class="col-lg-4">
+    <div style="margin-left: 55px;">
 
+        @Html.TextBox("inputBox", "", new { id = "inputBox", @class = "input-confirm input-sm" })
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Confirm" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="btn-group">
+            <input type="button" onclick="setInputBox(7);" value="7" class="btn-passCode btn btn-primary" />
+            <input type="button" onclick="setInputBox(8);" value="8" class="btn-passCode btn btn-danger" />
+            <input type="button" onclick="setInputBox(9);" value="9" class="btn-passCode btn btn-primary" />
         </div>
-    }
+        <div class="btn-group">
+            <input type="button" onclick="setInputBox(4);" value="4" class="btn-passCode btn btn-danger" />
+            <input type="button" onclick="setInputBox(5);" value="5" class="btn-passCode btn btn-primary" />
+            <input type="button" onclick="setInputBox(6);" value="6" class="btn-passCode btn btn-danger" />
+        </div>
+        <div class="btn-group">
+            <input type="button" onclick="setInputBox(1);" value="1" class="btn-passCode btn btn-primary" />
+            <input type="button" onclick="setInputBox(2);" value="2" class="btn-passCode btn btn-danger" />
+            <input type="button" onclick="setInputBox(3);" value="3" class="btn-passCode btn btn-primary" />
+        </div>
+        <div class="btn-group">
+            <input type="button" onclick="resetInputBox();" value="Reset" class="btn-passCode btn btn-danger" />
+            <input type="button" onclick="setInputBox(0);" value="0" class="btn-passCode btn btn-primary" />
+            <input type="button" onclick="setInputBox('.');" value="." class="btn-passCode btn btn-danger" />
+        </div>
+
+        <button class="btn btn-submit-passCode" onclick="calculate();">Calculate</button>
+    </div>
+</div>
+
+<div class="col-lg-4">
+    <h2>Amount to return</h2>
+    <br/>
+    <h2 id="amountToReturn"></h2>
 </div>

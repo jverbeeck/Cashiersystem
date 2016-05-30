@@ -1,4 +1,5 @@
-﻿@model System.Collections.Generic.List<Website.Models.Order>
+﻿@using BLL.Extensions
+@model System.Collections.Generic.List<Website.Models.Order>
 
 <h2>List orders</h2>
 
@@ -9,12 +10,10 @@
         foreach (var order in Model)
         {
             <text>
-                @*<div class="" id="listOrders">*@
 
-                    <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Order @order.OrderId</button>
+                <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Table @order.TableNumber</button>
 
-                @*</div>*@
-                <div class="hidden" id="listOrderDetail_@order.OrderId">
+                <div class="hidden" id="listOrderDetail_@order.OrderId" style="padding: 25px;">
                     <h3>Summary</h3>
 
                     <table id="OrderDetail" class="table">
@@ -64,10 +63,10 @@
                         </tbody>
                     </table>
                     <br />
-                    <button type="button" onclick="EditOrder(@order.OrderId);" class="btn btn-success">Edit order</button>
-                    <button type="button" onclick="ConfirmOrder();" class="btn btn-success">Confirm order</button>
+                    <button type="button" onclick="editOrder(@order.OrderId);" class="btn btn-success">Edit order</button>
+                    <button type="button" onclick="confirmOrder('0', @order.OrderId,@((int)Enums.Scenario.Update));" class="btn btn-success">Confirm order</button>
                 </div>
-            </text>
+            </text> 
                             }
 
     }
