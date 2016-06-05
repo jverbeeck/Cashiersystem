@@ -66,8 +66,9 @@
         var username = $('#hdnLoginField').val();
         var password = $('#passcodeBox').val();
 
-        $.post('@Url.Action("Login")', { username: username, password: password }, function () {
-            location.reload();
+        $.post('@Url.Action("Login")', { username: username, password: password }, function (data) {
+            $('body').html(data);
+            //location.reload();
         });
     }
 

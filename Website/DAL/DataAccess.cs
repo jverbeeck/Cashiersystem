@@ -13,10 +13,10 @@ namespace DAL
         private static readonly CashierContext _context = new CashierContext();
 
 
-        public static bool CheckIfUserExists(User user)
+        public static User CheckIfUserExists(User user)
         {
             var query = _context.Users.FirstOrDefault(w => w.FirstName.Equals(user.FirstName) && w.Password.Equals(user.Password));
-            return query != null;
+            return query;
         }
 
         public static List<User> GetAllUsers()

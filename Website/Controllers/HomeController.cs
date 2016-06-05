@@ -32,12 +32,15 @@ namespace Website.Controllers
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
                 var user = new User { FirstName = username, Password = password };
-                var userExists = DataAccess.CheckIfUserExists(user);
-                if (userExists)
+                var returnUser = DataAccess.CheckIfUserExists(user);
+                if (returnUser != null)
                 {
                     System.Web.HttpContext.Current.Session["authorized"] = true;
                     System.Web.HttpContext.Current.Session["currentUser"] = user;
-                    //return RedirectToAction("LandingPage", user);
+                    if (returnUser.UserRole == (int)Enums.UserRole.User)
+                    {
+                        return View("~/Views/Orders/index.cshtml");
+                    }
                     return View("LandingPage");
                 }
             }
