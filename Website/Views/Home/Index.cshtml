@@ -4,6 +4,7 @@
     ViewBag.Title = "Home Page";
 }
 
+@Html.ValidationMessage("MessageError")
 
 
 <div id="errMsgsId" class="errMsgs"></div>
@@ -15,11 +16,6 @@
     }
 
 }
-
-
-@Html.ValidationMessage("MessageError")
-
-
 
 <div id="loginForm">
     <fieldset style="margin: 0 60px;">
@@ -48,12 +44,9 @@
                 <input disabled id="passcodeC" type="button" onclick="removeLastCharPasscode();" value="C" class="btn-passCode btn btn-danger" />
             </div>
 
-            @*@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-                {*@
             @Html.TextBoxFor(m => m[0].FirstName, null, new { id = "hdnLoginField", hidden = true })
             @Html.TextBoxFor(m => m[0].Password, null, new { id = "passcodeBox", @class = "input-sm", type = "password", hidden = true })
             <button class="btn btn-submit-passCode" onclick="LoginPost();">Login</button>
-            @*}*@
         </div>
 
     </fieldset>
@@ -68,7 +61,6 @@
 
         $.post('@Url.Action("Login")', { username: username, password: password }, function (data) {
             $('body').html(data);
-            //location.reload();
         });
     }
 

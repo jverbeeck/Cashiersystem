@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using BLL.Extensions
+@using Website.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -8,43 +10,57 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Cashier System", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
-                    <li>@Html.ActionLink("Employees", "Index", "Users")</li>
-                    <li>@Html.ActionLink("StockItem", "Index", "Stock")</li>
-                </ul>
 
-                @Html.Partial("_LoginPartial")
+    @{
+        var user = (User)System.Web.HttpContext.Current.Session["currentUser"];
+    }
 
-                @*<ul class="nav navbar-nav" style="float:right">
-                    <li>@Html.ActionLink("Logout", "Logout", "Home")</li>
-                </ul>*@
-            </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @{
+                if (user == null || user.UserRole == (int)Enums.UserRole.Administrator)
+                {
+                    @Html.ActionLink("Cashier System", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {
+                    @Html.ActionLink("Cashier System", "Index", "Orders", new { area = "" }, new { @class = "navbar-brand" })
+                }
+            }
+        </div>
+        <div class="navbar-collapse collapse">
+
+            @{
+                if (user != null && user.UserRole == (int) Enums.UserRole.Administrator)
+                {
+                    <text>
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Employees", "Index", "Users")</li>
+                            <li>@Html.ActionLink("StockItem", "Index", "Stock")</li>
+                        </ul>
+                    </text>
+                }
+            }
+
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        @*<hr />
-    <footer>
-        <p>&copy; @DateTime.Now.Year - v1.0</p>
-    </footer>*@
-    </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+</div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/main")
-    @RenderSection("scripts", required: false)
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/main")
+@RenderSection("scripts", required: false)
 </body>
 </html>

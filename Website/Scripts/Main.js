@@ -1,6 +1,12 @@
 ﻿
 $(document).ready(function () {
     $('#loginForm').hide();
+    $('#tableNumberForm').hide();
+
+    $('#tableNumber').click(function() {
+        $('#tableNumberForm').show();
+        showTableNumberBox();
+    });
 });
 
 function setLoginName(name) {
@@ -21,32 +27,7 @@ function setLoginName(name) {
     showPasscodeBox();
 }
 
-//INPUTBOX CONFIRM
-
-function setInputBox(code) {
-    var inputBox = $('#inputBox').val();
-
-    if (inputBox.length >= 0 && inputBox.length < 5) {
-        $('#inputBox').val(inputBox + code.toString());
-    }
-}
-
-function resetInputBox() {
-    $('#inputBox').val("");
-}
-
-function calculate() {
-    var total = parseFloat($('#totalPrice').val());
-    var amount = parseFloat($('#inputBox').val());
-    var calculatedAmount = total - amount;
-
-    console.log(calculatedAmount);
-
-    $('#amountToReturn').val(calculatedAmount);
-
-}
-
- //LOGIN - PASSCODEBOX
+//LOGIN - PASSCODEBOX
 
 function setPasscode(code) {
     var inputBox = $('#passcodeBox').val();
@@ -106,7 +87,7 @@ function submit() {
     }
 }
 
- //ORDERS
+//ORDERS
 
 function showOrderDetail(id) {
     $('#listOrderDetail_' + id).removeClass("hidden");
@@ -178,14 +159,39 @@ function updateTotal(price, isAddition) {
     $('#totalQuantity')[0].innerHTML = currentQuantity.toFixed(2).toString();
 }
 
+function setTableNumber(code) {
+    var inputBox = $('#tableNumber').val();
+    $('#tableNumber').val(inputBox + code.toString());
+}
+
+function resetTableNumber() {
+    $('#tableNumber').val("");
+}
+
 
 //ORDER _ CREATE
-function createOrUpdateOrder(totalStockItems, orderId) {
+function createOrUpdateOrder(totalStockItems, orderId, scenario) {
+
+    var orderTotal = $('#totalQuantity').html();
+    var tableNumber = $('#tableNumber').val();
+
+    //if there is a orderId present, it's an update so no validation is required - else it's a new order
+    if (orderId === 0) {
+        if (tableNumber === "" || tableNumber == undefined) {
+            $('#errTableNo').show();
+            return;
+        }
+        else if (orderTotal === "0" || orderTotal == undefined) {
+            $('#errTableNo').hide();
+            $('#errOrderEmpty').show();
+            return;
+        }
+    }
 
     var orderItems = new Array();
     var quantity;
 
-
+    //fill an array with the orderitems
     for (var id = 1; id < totalStockItems + 1; id++) {
         var quantityString = $('#orderQuantity_' + id);
 
@@ -198,19 +204,18 @@ function createOrUpdateOrder(totalStockItems, orderId) {
         };
 
         orderItems.push(orderItem);
-
     }
 
 
-    if (orderId != undefined) {
+    if (orderId !== 0) {
         orderItems.push({
-            "StockItemId": -1,
+            "StockItemId": -3,
             "Name": orderId
         });
     } else {
         orderItems.push({
-            "StockItemId": 0,
-            "Name": $('#tableNumber').val()
+            "StockItemId": -4,
+            "Name": tableNumber
         });
     }
 
@@ -223,15 +228,9 @@ function createOrUpdateOrder(totalStockItems, orderId) {
     }).success(function (data) {
         $("body").html(data);
     });
-
-    //$.post("Create",  JSON.stringify(orderItems), function (details) {
-    //    //$("body").html(details);
-    //});
 }
 
-
 //ORDER _ EDIT
-
 function editOrder(id) {
 
     $.post("Edit", { id: id }, function (details) {
@@ -240,8 +239,21 @@ function editOrder(id) {
 }
 
 //ORDER _ CONFIRM
-
 function confirmOrder(totalStockItems, orderId, scenario) {
+
+    var orderTotal = $("#totalQuantity").html();
+    var tableNumber = $("#tableNumber").val();
+
+    if (scenario === -1) {
+        if (tableNumber === "") {
+            $('#errTableNo').show();
+            return;
+        }
+    }
+    if (orderTotal === "0") {
+        $('#errOrderEmpty').show();
+        return;
+    }
     var orderItems = new Array();
     var quantity;
 
@@ -265,7 +277,7 @@ function confirmOrder(totalStockItems, orderId, scenario) {
     });
     orderItems.push({
         "StockItemId": -4,
-        "Name": $('#tableNumber').val()
+        "Name": tableNumber
     });
 
     orderItems.push({
@@ -283,6 +295,42 @@ function confirmOrder(totalStockItems, orderId, scenario) {
             $("body").html(data);
         });
 
+}
+
+function setInputBox(code) {
+    var inputBox = $('#inputBox').val();
+
+    if (inputBox.length >= 0 && inputBox.length < 5) {
+        $('#inputBox').val(inputBox + code.toString());
+    }
+}
+
+function resetInputBox() {
+    $('#inputBox').val("");
+}
+
+function calculate() {
+    var total = parseFloat($('#totalPrice').html());
+    var amount = parseFloat($('#inputBox').val());
+
+    var calculatedAmount = - ( total - amount );
+
+    $('#amountToReturn').html("€ " + Math.round(calculatedAmount * 100) / 100);
+    $('#completeOrderStep').show();
+}
+
+//ORDER _ REMOVE
+function removeOrder(orderId) {
+    $.post("Remove", { orderId: orderId }, function (details) {
+        $("body").html(details);
+    });
+}
+
+//ORDER _ COMPLETE
+function completeOrder(orderId) {
+    $.post("Complete", { orderId: orderId }, function (details) {
+        $("body").html(details);
+    });
 }
 
 
@@ -317,6 +365,37 @@ function showPasscodeBox() {
         };
     });
     alertify.genericDialog($('#loginForm')[0]);
+}
+
+function showTableNumberBox() {
+    alertify.genericDialog || alertify.dialog('genericDialog', function () {
+        return {
+            main: function (content) {
+                this.setContent(content);
+            },
+            setup: function () {
+                return {
+                    focus: {
+                        element: function () {
+                            return this.elements.body.querySelector(this.get('selector'));
+                        },
+                        select: true
+                    },
+                    options: {
+                        basic: true,
+                        maximizable: false,
+                        resizable: false,
+                        padding: false,
+                        transition: 'zoom'
+                    }
+                };
+            },
+            settings: {
+                selector: undefined
+            }
+        };
+    });
+    alertify.genericDialog($('#tableNumberForm')[0]);
 }
 
 function showOrderBox(id) {

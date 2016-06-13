@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using BLL.Extensions;
 using DAL;
+using Microsoft.Ajax.Utilities;
 using Website.DAL;
 using Website.Models;
 
@@ -19,44 +20,40 @@ namespace Website.Controllers
     {
         private CashierContext db = new CashierContext();
 
-        // GET: Orders
+        /// <summary>
+        /// Retrieve the orders index page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return !_auth.IsAuthenticated ? View("Error") : View();
         }
 
+        /// <summary>
+        /// List all the orders
+        /// </summary>
+        /// <returns></returns>
         public ActionResult List()
         {
-            return !_auth.IsAuthenticated ? View("Error") : View(db.Orders.ToList());
+            var orders = db.Orders.Where(w => !w.HasConfirmed).ToList();
+            return !_auth.IsAuthenticated ? View("Error") : View(orders);
         }
 
-        // GET: Orders/Details/5
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Order order = db.Orders.Find(id);
-        //    if (order == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(order);
-        //}
-
-        // GET: Orders/Create
-
-
+        /// <summary>
+        /// GET gets the create order page
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Create()
         {
             ViewBag.stock = DataAccess.GetStockItems();
             return !_auth.IsAuthenticated ? View("Error") : View();
         }
 
-        // POST: Orders/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// POST Create an order
+        /// </summary>
+        /// <param name="orderItems"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Create(OrderItem[] orderItems)
         {
@@ -67,7 +64,7 @@ namespace Website.Controllers
                 var tableNumber = string.Empty;
                 var orderId = 0;
 
-                var orderItemTableNumber = items.FirstOrDefault(w => w.StockItemId == 0);
+                var orderItemTableNumber = items.FirstOrDefault(w => w.StockItemId == (int)Enums.Special.TableNumber);
                 if (orderItemTableNumber != null)
                 {
                     //Get table number and remove item from list
@@ -75,33 +72,33 @@ namespace Website.Controllers
                     items.Remove(orderItemTableNumber);
                 }
 
-                var orderItemOrderId = items.FirstOrDefault(w => w.StockItemId == -1);
+                var orderItemOrderId = items.FirstOrDefault(w => w.StockItemId == (int)Enums.Special.OrderId);
                 if (orderItemOrderId != null)
                 {
-                    orderId = Int32.Parse(orderItemOrderId.Name);
+                    orderId = int.Parse(orderItemOrderId.Name);
                     items.Remove(orderItemOrderId);
-
                 }
 
+                var order = new Order();
 
-                var order = orderId == 0 ?
-                 BLL.OrderBLL.CreateOrder(items, tableNumber) :
-                 db.Orders.FirstOrDefault(w => w.OrderId == orderId);
-
-                if (orderId != 0)
+                if (orderId == 0) //case create
                 {
-                    //remove order
-                    db.Orders.Remove(db.Orders.FirstOrDefault(w => w.OrderId == orderId));
-                    //remove currentOrderItems
-                    var currentOrderItems = db.OrderItems.Where(w => w.OrderId == orderId);
-                    foreach (var currentOrderItem in currentOrderItems)
-                    {
-                        db.OrderItems.Remove(currentOrderItem);
-                    }
+                    order = BLL.OrderBLL.CreateOrder(items, tableNumber);
+                }
+                else //case update
+                {
+                    //get and remove order
+                    order = db.Orders.FirstOrDefault(w => w.OrderId == orderId);
+                    tableNumber = order.TableNumber.ToString();
+                    db.Orders.Remove(order);
+
+                    db.SaveChanges();
+
+                    //create new order
+                    order = BLL.OrderBLL.CreateOrder(items, tableNumber);
                 }
 
                 db.Orders.Add(order);
-
                 db.SaveChanges();
 
                 return RedirectToAction("List");
@@ -110,7 +107,11 @@ namespace Website.Controllers
             return View();
         }
 
-        // GET: Orders/Edit/5
+        /// <summary>
+        /// Edit an order
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -129,12 +130,11 @@ namespace Website.Controllers
             return View(db.Orders.ToList());
         }
 
-        public ActionResult Update(OrderItem[] orderItems)
-        {
-            return null;
-        }
-
-
+        /// <summary>
+        /// Confirm an order 
+        /// </summary>
+        /// <param name="orderItems"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Confirm(OrderItem[] orderItems)
         {
@@ -148,7 +148,9 @@ namespace Website.Controllers
             if (firstOrDefault != null)
             {
                 var scenario = (Enums.Scenario)firstOrDefault.StockItemId;
-                var orderItemTableNumber = items.FirstOrDefault(w => w.StockItemId == -4);
+                items.Remove(firstOrDefault);
+
+                var orderItemTableNumber = items.FirstOrDefault(w => w.StockItemId == (int)Enums.Special.TableNumber);
                 if (orderItemTableNumber != null)
                 {
                     //Get table number and remove item from list
@@ -156,7 +158,7 @@ namespace Website.Controllers
                     items.Remove(orderItemTableNumber);
                 }
 
-                var orderItemOrderId = items.FirstOrDefault(w => w.StockItemId == -3 && !string.IsNullOrEmpty(w.Name));
+                var orderItemOrderId = items.FirstOrDefault(w => w.StockItemId == (int)Enums.Special.OrderId && !string.IsNullOrEmpty(w.Name));
                 if (orderItemOrderId != null)
                 {
                     //Get table number and remove item from list
@@ -175,21 +177,63 @@ namespace Website.Controllers
                     case Enums.Scenario.Update:
                         var currentOrderItems = db.OrderItems.Where(w => w.OrderId == orderId).ToList();
                         order = db.Orders.FirstOrDefault(w => w.OrderId == orderId);
+                        tableNumber = order.TableNumber.ToString();
                         db.Orders.Remove(order);
 
                         db.SaveChanges();
 
-
                         order = BLL.OrderBLL.CreateOrder(currentOrderItems, tableNumber);
-                        db.Orders.Add(order);
                         break;
+
+                    case Enums.Scenario.Confirm:
+                        order = db.Orders.FirstOrDefault(f => f.OrderId == orderId);
+                        return View(order);
                 }
             }
+
+            db.Orders.Add(order);
             db.SaveChanges();
 
             return View(order);
         }
 
+        /// <summary>
+        /// Complete the confirmation
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Complete(int orderId)
+        {
+            var order = db.Orders.FirstOrDefault(f => f.OrderId == orderId);
+            if (order != null)
+            {
+                order.HasConfirmed = true;
+
+                //update stockitem quantity
+                foreach (var orderItem in order.OrderItems)
+                {
+                    var stockItem = db.StockItems.FirstOrDefault(f => f.StockItemId == orderItem.StockItemId);
+                    if (stockItem != null) stockItem.AvailableQuantity -= orderItem.Quantity;
+                }
+            }
+            db.SaveChanges();
+            return View("Index");
+        }
+
+        /// <summary>
+        /// Remove an order
+        /// </summary>
+        /// <param name="orderId"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Remove(int orderId)
+        {
+            var order = db.Orders.FirstOrDefault(f => f.OrderId == orderId);
+            db.Orders.Remove(order);
+            db.SaveChanges();
+            return RedirectToAction("List");
+        }
 
         protected override void Dispose(bool disposing)
         {

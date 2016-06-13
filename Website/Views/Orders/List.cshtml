@@ -7,68 +7,80 @@
 <div class="row">
 
     @{
-        foreach (var order in Model)
+        if (!Model.Any())
         {
             <text>
+                This list seems empty.. Do you want to <br/>
+            </text>
+            <input type="button" onclick="location.href = '@Url.Action("Create","Orders")'" style="width: 250px; height: 50px; font-size: 25px" class="btn btn-primary" value="Create an order?" />
+        }
+        else
+        {
 
-                <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Table @order.TableNumber</button>
+            foreach (var order in Model)
+            {
+                <text>
 
-                <div class="hidden" id="listOrderDetail_@order.OrderId" style="padding: 25px;">
-                    <h3>Summary</h3>
+                    <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Table @order.TableNumber</button>
 
-                    <table id="OrderDetail" class="table">
-                        <thead>
-                            <tr>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                                <th>SubTotal</th>
-                            </tr>
-                        </thead>
+                    <div class="hidden" id="listOrderDetail_@order.OrderId" style="padding: 25px;">
+                        <h3>Summary</h3>
 
-                        @{
-                            foreach (var orderItem in order.OrderItems)
-                            {
-                                <tbody id="orderListDetail">
-                                    <tr>
-                                        <td>@orderItem.Name</td>
-                                        <td>@orderItem.Quantity</td>
-                                        <td>@orderItem.UnitPrice</td>
-                                        <td>@orderItem.SubTotal</td>
-                                    </tr>
-                                </tbody>
+                        <table id="OrderDetail" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>SubTotal</th>
+                                </tr>
+                            </thead>
+
+                            @{
+                                foreach (var orderItem in order.OrderItems)
+                                {
+                                    <tbody id="orderListDetail">
+                                        <tr>
+                                            <td>@orderItem.Name</td>
+                                            <td>@orderItem.Quantity</td>
+                                            <td>@orderItem.UnitPrice</td>
+                                            <td>@orderItem.SubTotal</td>
+                                        </tr>
+                                    </tbody>
+                                }
                             }
-                        }
-                    </table>
+                        </table>
 
-                    <br />
-                    <br />
-                    <br />
-                    <br />
+                        <br />
+                        <br />
+                        <br />
+                        <br />
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Total</th>
-                                <th>Quantity</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td>@order.TotalQuantity</td>
-                                <td>@order.TotalPrice</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br />
-                    <button type="button" onclick="editOrder(@order.OrderId);" class="btn btn-success">Edit order</button>
-                    <button type="button" onclick="confirmOrder('0', @order.OrderId,@((int)Enums.Scenario.Update));" class="btn btn-success">Confirm order</button>
-                </div>
-            </text> 
-                            }
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Total</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td>@order.TotalQuantity</td>
+                                    <td>@order.TotalPrice</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br />
+                        <button type="button" onclick="editOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Edit order</button>
+                        <button type="button" onclick="confirmOrder('0', @order.OrderId,@((int)Enums.Scenario.Confirm));" class="btn btn-success" style="width: 28%; margin: 7px;">Confirm order</button>
+                        <button type="button" onclick="removeOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Remove order</button>
+                    </div>
+                </text>
+                                    }
 
+                                }
     }
 
 </div>

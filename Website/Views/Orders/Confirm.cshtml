@@ -82,6 +82,10 @@
 
 <div class="col-lg-4">
     <h2>Amount to return</h2>
-    <br/>
-    <h2 id="amountToReturn"></h2>
+    <br />
+    <div id="completeOrderStep" hidden>
+        <h2 id="amountToReturn"></h2>
+        <br />
+        <button id="completeOrder" class="btn btn-submit-passCode" onclick="completeOrder(@((int)Model.OrderId));">Complete order</button>
+    </div>
 </div>

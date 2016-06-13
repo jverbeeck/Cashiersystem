@@ -23,7 +23,14 @@ namespace BLL.Extensions
         public enum Scenario
         {
             Create = -1,
-            Update = -2
+            Update = -2,
+            Confirm = -5
+        }
+
+        public enum Special
+        {
+            TableNumber = -4,
+            OrderId = -3
         }
     }
 }

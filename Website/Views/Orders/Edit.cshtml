@@ -2,11 +2,6 @@
 @using Website.Models
 @model List<Website.Models.Order>
 
-
-<div>
-    @Html.ActionLink("View Orders", "List")
-</div>
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -41,11 +36,27 @@
 
         </div>
         <div class="col-lg-4">
-            <h3>Summary</h3>
 
             @{
                 var currentOrder = (Order)ViewBag.CurrentOrder;
             }
+
+            <br/>
+            <br/>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Total</th>
+                        <th id="totalQuantity">@currentOrder.TotalQuantity</th>
+                        <th id="totalPrice">@currentOrder.TotalPrice</th>
+                    </tr>
+                </thead>
+            </table>
+            <hr />
+            <button type="button" onclick="createOrUpdateOrder(@stock.Count, @currentOrder.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Update order</button>
+            <button type="button" onclick="confirmOrder(@stock.Count, @currentOrder.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Confirm order</button>
+            <hr />
 
             <table class="table">
                 <thead>
@@ -74,25 +85,8 @@
                     }
 
                 </tbody>
-            </table>    
-
-            <br />
-            <br />
-            <br />
-            <br />
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Total</th>
-                        <th id="totalQuantity">@currentOrder.TotalQuantity</th>
-                        <th id="totalPrice">@currentOrder.TotalPrice</th>
-                    </tr>
-                </thead>
             </table>
-            <br />
-            <button type="button" onclick="createOrUpdateOrder(@stock.Count, @currentOrder.OrderId);" class="btn btn-success">Update order</button>
-            <button type="button" onclick="confirmOrder(@stock.Count,0,@((int)Enums.Scenario.Update));" class="btn btn-success">Confirm order</button>
+
         </div>
     </div>
 

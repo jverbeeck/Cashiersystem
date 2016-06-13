@@ -36,7 +36,7 @@ namespace Website.Controllers
                 if (returnUser != null)
                 {
                     System.Web.HttpContext.Current.Session["authorized"] = true;
-                    System.Web.HttpContext.Current.Session["currentUser"] = user;
+                    System.Web.HttpContext.Current.Session["currentUser"] = returnUser;
                     if (returnUser.UserRole == (int)Enums.UserRole.User)
                     {
                         return View("~/Views/Orders/index.cshtml");
@@ -52,7 +52,7 @@ namespace Website.Controllers
         {
             System.Web.HttpContext.Current.Session.Clear();
             System.Web.HttpContext.Current.Session.Abandon();
-            return View("index", _users);
+            return View("Index", _users);
         }
     }
 }
