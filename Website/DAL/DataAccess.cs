@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Website.BLL;
 using Website.DAL;
 using Website.Models;
 
@@ -15,8 +16,10 @@ namespace DAL
 
         public static User CheckIfUserExists(User user)
         {
-            var query = _context.Users.FirstOrDefault(w => w.FirstName.Equals(user.FirstName) && w.Password.Equals(user.Password));
-            return query;
+            var query = _context.Users.FirstOrDefault(w => w.FirstName.Equals(user.FirstName));
+            var isCorrectPassword = UserBLL.DecodeSalt(query, user);
+
+            return isCorrectPassword ? query : null;
         }
 
         public static List<User> GetAllUsers()

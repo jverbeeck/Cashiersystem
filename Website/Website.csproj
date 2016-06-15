@@ -132,7 +132,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\AuthEntity.cs" />
     <Compile Include="BLL\Enums.cs" />
+    <Compile Include="BLL\Helpers.cs" />
     <Compile Include="BLL\OrderBLL.cs" />
+    <Compile Include="BLL\UserBLL.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Website.BLL;
 using Website.DAL;
 using Website.Models;
 
@@ -17,6 +18,7 @@ namespace Website.Controllers
         // GET: Users
         public ActionResult Index()
         {
+
             return !_auth.IsAuthenticated || !_auth.IsAdmin ? View("Error") : View(db.Users.ToList());
         }
 
@@ -38,6 +40,7 @@ namespace Website.Controllers
         // GET: Users/Create
         public ActionResult Create()
         {
+            ViewBag.UserRoles = UserBLL.GetUserRoles();
             return View();
         }
 
@@ -52,6 +55,10 @@ namespace Website.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
+                    UserBLL.AddSalt(user);
+
+
                     db.Users.Add(user);
                     db.SaveChanges();
                     return RedirectToAction("Index");
@@ -78,6 +85,7 @@ namespace Website.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.UserRoles = UserBLL.GetUserRoles();
             return View(user);
         }
 
