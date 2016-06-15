@@ -18,7 +18,8 @@ namespace Website.DAL
                 FirstName= "Jonas",
                 LastName ="Verbeeck",
                 Email = "admin@mail.com",
-                Password = "admin",
+                CheckSum = "12-DC-33-A7-CA-FF-E8-48-27-C6-43-EC-1F-BC-77-D7",
+                Salt = "1huPWm9NsW",
                 UserRole = (int) Enums.UserRole.Administrator
             }};
 
