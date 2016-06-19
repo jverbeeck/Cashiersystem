@@ -37,10 +37,10 @@ namespace Website.Controllers
         /// GET gets the create order page
         /// </summary>
         /// <returns></returns>
-        public ActionResult Create()
+        public ActionResult Create(int tableNo)
         {
             ViewBag.stock = DataAccess.GetStockItems();
-            return !_auth.IsAuthenticated ? View("Error") : View();
+            return !_auth.IsAuthenticated ? View("Error") : View(tableNo);
         }
 
         /// <summary>
@@ -101,6 +101,13 @@ namespace Website.Controllers
             return View();
         }
 
+        public ActionResult CheckTableNumber(int tableNumber)
+        {
+
+            var orders = db.Orders.Where(w => w.TableNumber == tableNumber && !w.HasConfirmed).ToList();
+            return !orders.Any() ? RedirectToAction("Create", new { tableNo = tableNumber}) : RedirectToAction("Edit", new { id = orders.FirstOrDefault().OrderId });
+        }
+
         /// <summary>
         /// Edit an order
         /// </summary>
@@ -121,7 +128,7 @@ namespace Website.Controllers
             ViewBag.stock = DataAccess.GetStockItems();
             ViewBag.CurrentOrder = order;
 
-            return View(db.Orders.ToList());
+            return View(order);
         }
 
         /// <summary>
@@ -212,7 +219,7 @@ namespace Website.Controllers
                 }
             }
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("List");
         }
 
         /// <summary>

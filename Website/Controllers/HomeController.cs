@@ -41,7 +41,7 @@ namespace Website.Controllers
                     System.Web.HttpContext.Current.Session["currentUser"] = returnUser;
                     if (returnUser.UserRole == (int)Enums.UserRole.User)
                     {
-                        return View("~/Views/Orders/index.cshtml");
+                        return RedirectToAction("List","Orders");
                     }
                     return View("LandingPage");
                 }

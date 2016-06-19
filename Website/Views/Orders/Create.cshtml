@@ -1,6 +1,6 @@
 ﻿@using BLL.Extensions
 @using Website.Models
-@model List<Website.Models.Order>
+@model int?
 
 @using (Html.BeginForm())
 {
@@ -38,17 +38,7 @@
 
             <br/>
 
-            @Html.Label("Please make sure the table number isn't empty!", new {@class = "field-validation-error", @style = " color: red", hidden = true, id = "errTableNo"})
-            @Html.Label("Please make sure the order isn't empty!", new {@class = "field-validation-error", @style = " color: red", hidden = true, id = "errOrderEmpty"})
-            <div class="col-md-9">
-                @Html.Label("Insert the table number:", new {@class = "control-label", @style = "margin:5px 0 0 18px;"})
-            </div>
-            <div class="col-md-3">
-                @Html.TextBox("tableNumber", "", new {@class = "form-control"})
-            </div>
-
-            <hr/>
-            <hr/>
+            @Html.Label("Table " + Model, new { @style = " font-weight: bold; font-size: 35px; float:right"})
 
             <table class="table table-bordered">
                 <tbody>
@@ -60,8 +50,8 @@
                 <tbody/>
             </table>
             <hr/>
-            <button type="button" onclick="createOrUpdateOrder(@stock.Count, 0, @((int) Enums.Scenario.Create));" class="btn btn-success" style="width: 45%; margin: 7px;">Create order</button>
-            <button type="button" onclick="confirmOrder(@stock.Count, 0, @((int) Enums.Scenario.Create));" class="btn btn-success" style="width: 45%; margin: 7px;">Confirm order</button>
+            <button type="button" onclick="createOrUpdateOrder(@stock.Count, 0, @((int) Enums.Scenario.Create), @Model);" class="btn btn-success" style="width: 45%; margin: 7px;">Create</button>
+            <button type="button" onclick="confirmOrder(@stock.Count, 0, @((int) Enums.Scenario.Create), @Model);" class="btn btn-success" style="width: 45%; margin: 7px;">Confirm</button>
 
             <hr/>
 
@@ -77,38 +67,13 @@
                 </thead>
                 <tbody id="orderListDetail"></tbody>
             </table>
+            @Html.Label("Please make sure the order isn't empty!", new { @class = "field-validation-error", @style = " color: red", hidden = true, id = "errOrderEmpty" })
+
         </div>
     </div>
                 }
 
-<div id="tableNumberForm">
-    <fieldset style="margin: 0 60px;">
 
-        <h2>Please enter a table number</h2>
-        <br />
-        <div style="margin-left: 55px;">
-            <div class="btn-group">
-                <input type="button" onclick="setTableNumber(7);" value="7" class="btn-passCode btn btn-primary" />
-                <input type="button" onclick="setTableNumber(8);" value="8" class="btn-passCode btn btn-danger" />
-                <input type="button" onclick="setTableNumber(9);" value="9" class="btn-passCode btn btn-primary" />
-            </div>
-            <div class="btn-group">
-                <input type="button" onclick="setTableNumber(4);" value="4" class="btn-passCode btn btn-danger" />
-                <input type="button" onclick="setTableNumber(5);" value="5" class="btn-passCode btn btn-primary" />
-                <input type="button" onclick="setTableNumber(6);" value="6" class="btn-passCode btn btn-danger" />
-            </div>
-            <div class="btn-group">
-                <input type="button" onclick="setTableNumber(1);" value="1" class="btn-passCode btn btn-primary" />
-                <input type="button" onclick="setTableNumber(2);" value="2" class="btn-passCode btn btn-danger" />
-                <input type="button" onclick="setTableNumber(3);" value="3" class="btn-passCode btn btn-primary" />
-            </div>
-            <div class="btn-group">
-                <input id="passcodeReset" type="button" onclick="resetTableNumber();" value="Reset" class="btn-passCode btn btn-danger" />
-                <input type="button" onclick="setTableNumber(0);" value="0" class="btn-passCode btn btn-primary" />
-            </div>
-        </div>
-    </fieldset>
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

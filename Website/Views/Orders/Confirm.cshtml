@@ -53,7 +53,7 @@
 <div class="col-lg-4">
     <div style="margin-left: 55px;">
 
-        @Html.TextBox("inputBox", "", new { id = "inputBox", @class = "input-confirm input-sm" })
+        @Html.TextBox("inputBox", "", new { id = "inputBox", @class = "input-confirm form-control" })
 
         <div class="btn-group">
             <input type="button" onclick="setInputBox(7);" value="7" class="btn-passCode btn btn-primary" />
@@ -80,12 +80,12 @@
     </div>
 </div>
 
-<div class="col-lg-4">
+<div class="col-lg-4" style="text-align: center">
     <h2>Amount to return</h2>
-    <br />
     <div id="completeOrderStep" hidden>
+        <span style="color: red; font-size: 20px;" id="errInsertedAmount"></span>
         <h2 id="amountToReturn"></h2>
-        <br />
-        <button id="completeOrder" class="btn btn-submit-passCode" onclick="completeOrder(@((int)Model.OrderId));">Complete order</button>
+        <br/>
+        <button id="completeOrder" class="btn btn-submit-order" onclick="completeOrder(@((int) Model.OrderId));">Finish</button>
     </div>
 </div>

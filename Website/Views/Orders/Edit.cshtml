@@ -1,7 +1,7 @@
 ﻿@using BLL.Extensions
 @using Website.BLL
 @using Website.Models
-@model List<Website.Models.Order>
+@model Website.Models.Order
 
 @using (Html.BeginForm())
 {
@@ -38,25 +38,20 @@
         </div>
         <div class="col-lg-4">
 
-            @{
-                var currentOrder = (Order)ViewBag.CurrentOrder;
-            }
-
-            <br/>
-            <br/>
+            @Html.Label("Table " + Model.TableNumber, new { @style = " font-weight: bold; font-size: 35px; float:right" })
 
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Total</th>
-                        <th id="totalQuantity">@currentOrder.TotalQuantity</th>
-                        <th id="totalPrice">@currentOrder.TotalPrice</th>
+                        <th id="totalQuantity">@Model.TotalQuantity</th>
+                        <th id="totalPrice">@Model.TotalPrice</th>
                     </tr>
                 </thead>
             </table>
             <hr />
-            <button type="button" onclick="createOrUpdateOrder(@stock.Count, @currentOrder.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Update order</button>
-            <button type="button" onclick="confirmOrder(@stock.Count, @currentOrder.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Confirm order</button>
+            <button type="button" onclick="createOrUpdateOrder(@stock.Count, @Model.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Update</button>
+            <button type="button" onclick="confirmOrder(@stock.Count, @Model.OrderId, @((int)Enums.Scenario.Update));" class="btn btn-success" style="width: 45%; margin: 7px;">Confirm</button>
             <hr />
 
             <table class="table">
@@ -71,7 +66,7 @@
                 </thead>
                 <tbody id="orderListDetail">
                     @{
-                        foreach (var orderItem in currentOrder.OrderItems)
+                        foreach (var orderItem in Model.OrderItems)
                         {
                             <text>
                                 <tr id="orderRow_@orderItem.StockItemId">

@@ -6,71 +6,106 @@
 <div class="row" style="margin-top: 15px;">
 
     @{
-            <input type="button" onclick="location.href = '@Url.Action("Create","Orders")'" class="btn btn-primary btn-order" value="+" />
+        @*<input type="button" onclick="location.href = '@Url.Action("Create","Orders")'" class="btn btn-primary btn-order" value="+" style="font-size: 50px;" />*@
+        <input type="button" onclick="openCreateOrderDialog();" class="btn btn-primary btn-order" value="+" style="font-size: 50px;" />
 
-            foreach (var order in Model)
-            {
-                <text>
+        foreach (var order in Model)
+        {
+            <text>
 
-                    <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Table @order.TableNumber</button>
+                <button type="button" onclick="showOrderDetail(@order.OrderId);" class="btn btn-info btn-order">Table @order.TableNumber</button>
 
-                    <div class="hidden" id="listOrderDetail_@order.OrderId" style="padding: 25px;">
-                        <h3>Summary</h3>
+                <div class="hidden" id="listOrderDetail_@order.OrderId" style="padding: 25px;">
+                    <h3>Summary</h3>
 
-                        <table id="OrderDetail" class="table">
-                            <thead>
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>SubTotal</th>
-                                </tr> 
-                            </thead>
+                    <table id="OrderDetail" class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>SubTotal</th>
+                            </tr>
+                        </thead>
 
-                            @{
-                                foreach (var orderItem in order.OrderItems)
-                                {
-                                    <tbody id="orderListDetail">
-                                        <tr>
-                                            <td>@orderItem.Name</td>
-                                            <td>@orderItem.Quantity</td>
-                                            <td>@orderItem.UnitPrice</td>
-                                            <td>@orderItem.SubTotal</td>
-                                        </tr>
-                                    </tbody>
-                                }
+                        @{
+                            foreach (var orderItem in order.OrderItems)
+                            {
+                                <tbody id="orderListDetail">
+                                    <tr>
+                                        <td>@orderItem.Name</td>
+                                        <td>@orderItem.Quantity</td>
+                                        <td>@orderItem.UnitPrice</td>
+                                        <td>@orderItem.SubTotal</td>
+                                    </tr>
+                                </tbody>
                             }
-                        </table>
+                        }
+                    </table>
 
-                        <br />
-                        <br />
-                        <br />
-                        <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
 
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Total</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td>@order.TotalQuantity</td>
-                                    <td>@order.TotalPrice</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <button type="button" onclick="editOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Edit order</button>
-                        <button type="button" onclick="confirmOrder('0', @order.OrderId,@((int)Enums.Scenario.Confirm));" class="btn btn-success" style="width: 28%; margin: 7px;">Confirm order</button>
-                        <button type="button" onclick="removeOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Remove order</button>
-                    </div>
-                </text>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Total</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>@order.TotalQuantity</td>
+                                <td>@order.TotalPrice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br />
+                    <button type="button" onclick="editOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Edit</button>
+                    <button type="button" onclick="confirmOrder('0', @order.OrderId, @((int) Enums.Scenario.Confirm));" class="btn btn-success" style="width: 28%; margin: 7px;">Confirm</button>
+                    <button type="button" onclick="removeOrder(@order.OrderId);" class="btn btn-success" style="width: 28%; margin: 7px;">Remove</button>
+                </div>
+            </text>
 
-                                }
+                            }
     }
 
+</div>
+
+<div id="tableNumberForm">
+    <fieldset style="margin: 0 60px;">
+
+        <h2>Please enter a table number</h2>
+        <br />
+
+        <div style="margin-left: 55px;">
+            <input id="tableNumber" class="form-control" style="width: 260px;" />
+            <div class="btn-group">
+                <input type="button" onclick="setTableNumber(7);" value="7" class="btn-passCode btn btn-primary" />
+                <input type="button" onclick="setTableNumber(8);" value="8" class="btn-passCode btn btn-danger" />
+                <input type="button" onclick="setTableNumber(9);" value="9" class="btn-passCode btn btn-primary" />
+            </div>
+            <div class="btn-group">
+                <input type="button" onclick="setTableNumber(4);" value="4" class="btn-passCode btn btn-danger" />
+                <input type="button" onclick="setTableNumber(5);" value="5" class="btn-passCode btn btn-primary" />
+                <input type="button" onclick="setTableNumber(6);" value="6" class="btn-passCode btn btn-danger" />
+            </div>
+            <div class="btn-group">
+                <input type="button" onclick="setTableNumber(1);" value="1" class="btn-passCode btn btn-primary" />
+                <input type="button" onclick="setTableNumber(2);" value="2" class="btn-passCode btn btn-danger" />
+                <input type="button" onclick="setTableNumber(3);" value="3" class="btn-passCode btn btn-primary" />
+            </div>
+            <div class="btn-group">
+                <input id="passcodeReset" type="button" onclick="resetTableNumber();" value="Reset" class="btn-passCode btn btn-danger" />
+                <input type="button" onclick="setTableNumber(0);" value="0" class="btn-passCode btn btn-primary" />
+            </div>
+
+            <button class="btn btn-submit-passCode" onclick="CreateOrderPost();">Create</button>
+
+        </div>
+    </fieldset>
 </div>

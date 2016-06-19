@@ -2,11 +2,6 @@
 $(document).ready(function () {
     $('#loginForm').hide();
     $('#tableNumberForm').hide();
-
-    $('#tableNumber').click(function() {
-        $('#tableNumberForm').show();
-        showTableNumberBox();
-    });
 });
 
 function setLoginName(name) {
@@ -58,33 +53,6 @@ function resetPasscode() {
     $('#passcodeBox').val("");
     $('#passcodeC').prop('disabled', true);
     $('#passcodeReset').prop('disabled', true);
-}
-
-function submit() {
-    var id = $('#selectedLogin').html();
-    var pass = $('#passcodeBox').val();
-
-    //Simple validation for fields passcode and login
-    var idValidation = false;
-    var passValidation = false;
-
-    //no login selected ==> show id error 
-    if (id !== "") {
-        idValidation = true;
-        $('#errMsgsId').html('');
-    } else {
-        //show id error
-        $('#errMsgsId').html('ID ERROR');
-    }
-
-    //no correct passcode format ==> show error
-    if (pass.length === 5) {
-        passValidation = true;
-        $('#errMsgsPasscode').html('');
-    } else {
-        //show passcode error
-        $('#errMsgsPasscode').html('PASSCODE ERROR');
-    }
 }
 
 //ORDERS
@@ -168,20 +136,27 @@ function resetTableNumber() {
     $('#tableNumber').val("");
 }
 
+function openCreateOrderDialog() {
+    $('#tableNumberForm').show();
+    showTableNumberBox();
+}
+
+function CreateOrderPost() {
+    var tableNumber = $('#tableNumber').val();
+    $.post("CheckTableNumber", { tableNumber: tableNumber }, function (details) {
+        $("body").html(details);
+    });
+}
+
 
 //ORDER _ CREATE
-function createOrUpdateOrder(totalStockItems, orderId, scenario) {
+function createOrUpdateOrder(totalStockItems, orderId, scenario, tablenumber) {
 
     var orderTotal = $('#totalQuantity').html();
-    var tableNumber = $('#tableNumber').val();
 
     //if there is a orderId present, it's an update so no validation is required - else it's a new order
     if (orderId === 0) {
-        if (tableNumber === "" || tableNumber == undefined) {
-            $('#errTableNo').show();
-            return;
-        }
-        else if (orderTotal === "0" || orderTotal == undefined) {
+        if (orderTotal === "0" || orderTotal == undefined) {
             $('#errTableNo').hide();
             $('#errOrderEmpty').show();
             return;
@@ -215,10 +190,9 @@ function createOrUpdateOrder(totalStockItems, orderId, scenario) {
     } else {
         orderItems.push({
             "StockItemId": -4,
-            "Name": tableNumber
+            "Name": tablenumber
         });
     }
-
 
     $.ajax({
         type: "POST",
@@ -239,17 +213,10 @@ function editOrder(id) {
 }
 
 //ORDER _ CONFIRM
-function confirmOrder(totalStockItems, orderId, scenario) {
+function confirmOrder(totalStockItems, orderId, scenario, tablenumber) {
 
     var orderTotal = $("#totalQuantity").html();
-    var tableNumber = $("#tableNumber").val();
 
-    if (scenario === -1) {
-        if (tableNumber === "") {
-            $('#errTableNo').show();
-            return;
-        }
-    }
     if (orderTotal === "0") {
         $('#errOrderEmpty').show();
         return;
@@ -275,10 +242,12 @@ function confirmOrder(totalStockItems, orderId, scenario) {
         "StockItemId": -3,
         "Name": orderId
     });
-    orderItems.push({
-        "StockItemId": -4,
-        "Name": tableNumber
-    });
+    if (tablenumber != undefined) {
+        orderItems.push({
+            "StockItemId": -4,
+            "Name": tablenumber
+        });
+    }
 
     orderItems.push({
         "StockItemId": scenario,
@@ -312,10 +281,25 @@ function resetInputBox() {
 function calculate() {
     var total = parseFloat($('#totalPrice').html());
     var amount = parseFloat($('#inputBox').val());
+    var calculatedAmount = amount - total;
 
-    var calculatedAmount = - ( total - amount );
+    console.log($('#inputBox').val());
+    console.log(calculatedAmount);
 
-    $('#amountToReturn').html("€ " + Math.round(calculatedAmount * 100) / 100);
+    if (calculatedAmount < 0 || $('#inputBox').val() === "") {
+        $('#errInsertedAmount').html("Inserted amount is insufficient,</br> please insert new amount");
+        $('#amountToReturn').hide();
+        $('#completeOrder').hide();
+        resetInputBox();
+
+    } else {
+        $('#amountToReturn').show();
+        $('#completeOrder').show();
+        $('#errInsertedAmount').html("");
+        $('#amountToReturn').html("€ " + Math.round(calculatedAmount * 100) / 100);
+        $('#completeOrder').prop("disabled", false);
+    }
+
     $('#completeOrderStep').show();
 }
 

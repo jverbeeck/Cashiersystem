@@ -43,6 +43,11 @@ textarea {
     margin: 10px;
     margin-left: 70px;
 }
+.btn-submit-order {
+    width: 120px; 
+    height: 60px; 
+    margin: 10px;
+}
 .btn-order {
     width: 100px; 
     height: 80px; 
@@ -68,15 +73,17 @@ textarea {
 }
 
 .input-confirm {
-    width: inherit;
+    width: 260px;
+    margin-bottom: 10px;
 }
 
 #amountToReturn {
     border: 2px solid black;
     padding: 10px !important;
     height: 80px;
-    width: 300px !important;
+    /*width: 300px !important;*/
     font-weight: bold;
     text-align: center;
     font-size: 50px !important;
+    border-radius: 10px;
 }
