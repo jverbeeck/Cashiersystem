@@ -23,7 +23,14 @@ namespace Website.DAL
                 UserRole = (int) Enums.UserRole.Administrator
             }};
 
+            var categories = new List<Category>
+            {
+                new Category { CategoryName = "Alcohol" },
+                new Category { CategoryName = "Non-Alcohol" }
+            };
+
             users.ForEach(s => context.Users.Add(s));
+            categories.ForEach(s => context.Categories.Add(s));
             context.SaveChanges();
 
         }

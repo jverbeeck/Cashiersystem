@@ -31,7 +31,7 @@
                 }
                 else
                 {
-                    @Html.ActionLink("Cashier System", "Index", "Orders", new { area = "" }, new { @class = "navbar-brand" })
+                    @Html.ActionLink("Cashier System", "List", "Orders", new { area = "" }, new { @class = "navbar-brand" })
                 }
             }
         </div>
@@ -42,7 +42,7 @@
                 {
                     <text>
                         <ul class="nav navbar-nav">
-                            <li>@Html.ActionLink("Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Orders", "List", "Orders")</li>
                             <li>@Html.ActionLink("Employees", "Index", "Users")</li>
                             <li>@Html.ActionLink("StockItem", "Index", "Stock")</li>
                         </ul>
