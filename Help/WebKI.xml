@@ -1,0 +1,407 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AddSalt method" Url="html/31227466-d26c-a90c-2131-ace8b155dd41.htm" />
+  <HelpKINode Title="Administrator enumeration member" Url="html/50c4342c-bf61-94b0-9938-6c6a8f20daa6.htm" />
+  <HelpKINode Title="Alcohol enumeration member" Url="html/4b4331c1-92e6-c565-dbcb-aa25c5f5a068.htm" />
+  <HelpKINode Title="Application_Start method" Url="html/cb393317-a942-6c22-640c-c96d5d689838.htm" />
+  <HelpKINode Title="AuthEntity class">
+    <HelpKINode Title="AuthEntity Class" Url="html/4e7eb083-fa7b-1096-2119-949a9d23cacd.htm" />
+    <HelpKINode Title="about AuthEntity class" Url="html/4e7eb083-fa7b-1096-2119-949a9d23cacd.htm" />
+    <HelpKINode Title="constructor" Url="html/392ed8ea-fd81-00d9-ccd0-e05a51a3504c.htm" />
+    <HelpKINode Title="methods" Url="html/ea8b31a9-b0b6-1da2-549c-fc2dfa85b873.htm" />
+    <HelpKINode Title="properties" Url="html/18fa79f6-7cb5-74fc-00e4-b4960eaf83f2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AuthEntity.AuthEntity constructor" Url="html/392ed8ea-fd81-00d9-ccd0-e05a51a3504c.htm" />
+  <HelpKINode Title="AuthEntity.IsAdmin property" Url="html/a77c3094-0fdc-fcd0-f49d-5097ab0977ce.htm" />
+  <HelpKINode Title="AuthEntity.IsAuthenticated property" Url="html/204d0637-5400-941a-70b5-350949f84f85.htm" />
+  <HelpKINode Title="AvailableQuantity property" Url="html/bffa6430-2d01-5d23-40e3-079b2e805342.htm" />
+  <HelpKINode Title="Base64Decode method" Url="html/9918d672-3143-23ab-f993-96ff6ffed519.htm" />
+  <HelpKINode Title="Base64Encode method" Url="html/ecce2664-4431-3b8f-eee5-60212c7a1893.htm" />
+  <HelpKINode Title="BaseController class">
+    <HelpKINode Title="BaseController Class" Url="html/c5e8c351-0804-c46c-af6c-2b1dafca3831.htm" />
+    <HelpKINode Title="about BaseController class" Url="html/c5e8c351-0804-c46c-af6c-2b1dafca3831.htm" />
+    <HelpKINode Title="constructor" Url="html/415355c0-cf98-7f08-02bd-186cac06d587.htm" />
+    <HelpKINode Title="methods" Url="html/777a52c2-ff5a-1c3e-3126-43fabd264e89.htm" />
+    <HelpKINode Title="properties" Url="html/cf9caac8-e6a4-6d5c-19a0-d13cde252931.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BaseController.BaseController constructor" Url="html/415355c0-cf98-7f08-02bd-186cac06d587.htm" />
+  <HelpKINode Title="BaseController.CheckAuth method" Url="html/f1e686b3-c292-79bf-6791-664d9c8d9688.htm" />
+  <HelpKINode Title="BaseController._auth property" Url="html/44be1cfc-4308-0b68-b483-354eb8cd0e30.htm" />
+  <HelpKINode Title="BLL.Extensions namespace" Url="html/b6cf8fbb-0195-f00d-f1e0-4f3412144be4.htm" />
+  <HelpKINode Title="BLL.Extensions.AuthEntity class" Url="html/4e7eb083-fa7b-1096-2119-949a9d23cacd.htm" />
+  <HelpKINode Title="BLL.Extensions.Enums class" Url="html/87559043-8e46-6b43-0a45-ceb5d4a6aaeb.htm" />
+  <HelpKINode Title="BLL.Extensions.Enums.DrinkCategory enumeration" Url="html/4b4331c1-92e6-c565-dbcb-aa25c5f5a068.htm" />
+  <HelpKINode Title="BLL.Extensions.Enums.Scenario enumeration" Url="html/b5ea4a94-fdc2-eb0b-fbff-c113ae56df40.htm" />
+  <HelpKINode Title="BLL.Extensions.Enums.Special enumeration" Url="html/cef8c04c-76b0-7ea8-e4eb-a32fd63937b7.htm" />
+  <HelpKINode Title="BLL.Extensions.Enums.UserRole enumeration" Url="html/50c4342c-bf61-94b0-9938-6c6a8f20daa6.htm" />
+  <HelpKINode Title="BundleConfig class">
+    <HelpKINode Title="BundleConfig Class" Url="html/d783c2a3-6de2-1d5f-f4d3-c0ad460e4d60.htm" />
+    <HelpKINode Title="about BundleConfig class" Url="html/d783c2a3-6de2-1d5f-f4d3-c0ad460e4d60.htm" />
+    <HelpKINode Title="constructor" Url="html/52486d11-313a-bf51-880c-c28eb9413ecf.htm" />
+    <HelpKINode Title="methods" Url="html/37cbab75-e137-3c46-8f1d-04294029609d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BundleConfig.BundleConfig constructor" Url="html/52486d11-313a-bf51-880c-c28eb9413ecf.htm" />
+  <HelpKINode Title="BundleConfig.RegisterBundles method" Url="html/12463499-8750-8f6b-570d-3a4311ef9507.htm" />
+  <HelpKINode Title="CashierContext class">
+    <HelpKINode Title="CashierContext Class" Url="html/fe27d86f-1269-2a88-fc8a-5e242f73540d.htm" />
+    <HelpKINode Title="about CashierContext class" Url="html/fe27d86f-1269-2a88-fc8a-5e242f73540d.htm" />
+    <HelpKINode Title="constructor" Url="html/c18f0e15-667a-ea08-6550-cd8790d1db2e.htm" />
+    <HelpKINode Title="methods" Url="html/abfc0a55-a3ea-2086-c53a-a84cfebf5f86.htm" />
+    <HelpKINode Title="properties" Url="html/f7e55f71-5e45-67f1-e90f-81aa983f1c71.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CashierContext.CashierContext constructor" Url="html/c18f0e15-667a-ea08-6550-cd8790d1db2e.htm" />
+  <HelpKINode Title="CashierContext.Categories property" Url="html/65554b0b-fd08-dcbb-b738-30daba6b12c0.htm" />
+  <HelpKINode Title="CashierContext.OnModelCreating method" Url="html/bdbfd9e9-85ba-21bc-82db-613cda337048.htm" />
+  <HelpKINode Title="CashierContext.OrderItems property" Url="html/20f2d87d-fec7-b858-7961-db16e824dd9b.htm" />
+  <HelpKINode Title="CashierContext.Orders property" Url="html/6fde34d5-5f89-44c9-a341-9ff101cc57d6.htm" />
+  <HelpKINode Title="CashierContext.StockItems property" Url="html/5b0a1682-b09f-f433-bfce-d8e533b25b25.htm" />
+  <HelpKINode Title="CashierContext.Users property" Url="html/dfe4312d-ef1e-7a63-42d7-0f339b0419a8.htm" />
+  <HelpKINode Title="CashierInitializer class">
+    <HelpKINode Title="CashierInitializer Class" Url="html/7c125d0f-a9a2-6612-b632-b4cb4ad3377c.htm" />
+    <HelpKINode Title="about CashierInitializer class" Url="html/7c125d0f-a9a2-6612-b632-b4cb4ad3377c.htm" />
+    <HelpKINode Title="constructor" Url="html/6566063a-8015-34f3-c0ad-d8027de1aff1.htm" />
+    <HelpKINode Title="methods" Url="html/84c792fd-e338-1e81-38f3-52ee12411007.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CashierInitializer.CashierInitializer constructor" Url="html/6566063a-8015-34f3-c0ad-d8027de1aff1.htm" />
+  <HelpKINode Title="CashierInitializer.Seed method" Url="html/5950aa0d-f9af-a136-3486-802fece60db5.htm" />
+  <HelpKINode Title="Categories property" Url="html/65554b0b-fd08-dcbb-b738-30daba6b12c0.htm" />
+  <HelpKINode Title="Category class">
+    <HelpKINode Title="Category Class" Url="html/4280ce15-5cd4-9983-187a-2d018d2b3053.htm" />
+    <HelpKINode Title="about Category class" Url="html/4280ce15-5cd4-9983-187a-2d018d2b3053.htm" />
+    <HelpKINode Title="constructor" Url="html/ddd1b8d9-17af-843f-6b65-747a70d81e17.htm" />
+    <HelpKINode Title="methods" Url="html/5bec5e49-862a-8dca-a21a-c0d9ff2e96a1.htm" />
+    <HelpKINode Title="properties" Url="html/50b694ba-f691-f236-da42-5251fad8816e.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Category.Category constructor" Url="html/ddd1b8d9-17af-843f-6b65-747a70d81e17.htm" />
+  <HelpKINode Title="Category.CategoryId property" Url="html/b082c824-f382-73e7-9369-947bc357ddf4.htm" />
+  <HelpKINode Title="Category.CategoryName property" Url="html/400581e7-e7f0-6925-e0a9-a8540cfbd93d.htm" />
+  <HelpKINode Title="CategoryId property">
+    <HelpKINode Title="Category.CategoryId Property " Url="html/b082c824-f382-73e7-9369-947bc357ddf4.htm" />
+    <HelpKINode Title="StockItem.CategoryId Property " Url="html/3e3a796b-79ea-85f6-1919-6e62ab80c649.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CategoryName property" Url="html/400581e7-e7f0-6925-e0a9-a8540cfbd93d.htm" />
+  <HelpKINode Title="CheckAuth method" Url="html/f1e686b3-c292-79bf-6791-664d9c8d9688.htm" />
+  <HelpKINode Title="CheckIfUserExists method" Url="html/61b4eb47-6967-4cd6-e1d4-f251be8b3eb7.htm" />
+  <HelpKINode Title="CheckSum property" Url="html/1fb708de-19c7-b7e2-f60c-0847db5260eb.htm" />
+  <HelpKINode Title="CheckTableNumber method" Url="html/500b59ae-f0f6-4be7-0f8e-3ee7490e1857.htm" />
+  <HelpKINode Title="Complete method" Url="html/1fd9a675-0668-4777-3249-1ce5f10a349c.htm" />
+  <HelpKINode Title="Confirm enumeration member" Url="html/b5ea4a94-fdc2-eb0b-fbff-c113ae56df40.htm" />
+  <HelpKINode Title="Confirm method" Url="html/911dea8c-7432-8251-c27d-8c1759939f59.htm" />
+  <HelpKINode Title="Create enumeration member" Url="html/b5ea4a94-fdc2-eb0b-fbff-c113ae56df40.htm" />
+  <HelpKINode Title="Create method">
+    <HelpKINode Title="OrdersController.Create Method " Url="html/95ce5651-18ee-e4fb-835a-98b362b8e56c.htm" />
+    <HelpKINode Title="StockController.Create Method " Url="html/7adb11bc-274f-6304-e55b-2a7170a4761a.htm" />
+    <HelpKINode Title="UsersController.Create Method " Url="html/4cffb024-c1d5-b1c8-7fb6-6a5b160d3918.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CreateOrder method" Url="html/ab450fd0-17a1-0b8c-21c5-bb2e05bd6ee6.htm" />
+  <HelpKINode Title="DAL namespace" Url="html/6334a317-1d3e-dab1-9f4e-1c868d3f6675.htm" />
+  <HelpKINode Title="DAL.DataAccess class" Url="html/9d59da64-1590-5c05-599d-3118c3298321.htm" />
+  <HelpKINode Title="DataAccess class">
+    <HelpKINode Title="DataAccess Class" Url="html/9d59da64-1590-5c05-599d-3118c3298321.htm" />
+    <HelpKINode Title="about DataAccess class" Url="html/9d59da64-1590-5c05-599d-3118c3298321.htm" />
+    <HelpKINode Title="methods" Url="html/d92dfc95-b921-77a3-467e-8929f7a00c5d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DataAccess.CheckIfUserExists method" Url="html/61b4eb47-6967-4cd6-e1d4-f251be8b3eb7.htm" />
+  <HelpKINode Title="DataAccess.GetAllUsers method" Url="html/86de231a-f399-ef90-b1a0-89ca0fb10418.htm" />
+  <HelpKINode Title="DataAccess.GetCategories method" Url="html/b9368739-2c2c-a494-de68-3f3f0c2e6eb4.htm" />
+  <HelpKINode Title="DataAccess.GetStockItems method" Url="html/417b825e-f914-6bfe-dce7-a5bba9eb15bd.htm" />
+  <HelpKINode Title="DecodeSalt method" Url="html/2c179b4f-c4c4-649a-397a-8fbf7a607845.htm" />
+  <HelpKINode Title="Delete method">
+    <HelpKINode Title="StockController.Delete Method " Url="html/01029d59-bb1c-ca93-18ed-88ed845914f5.htm" />
+    <HelpKINode Title="UsersController.Delete Method " Url="html/0586a9c2-9ad5-9ac0-4c61-793810aa2bef.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DeleteConfirmed method">
+    <HelpKINode Title="StockController.DeleteConfirmed Method " Url="html/50b3ece4-2a67-25a6-d57b-fb7520e4ba0c.htm" />
+    <HelpKINode Title="UsersController.DeleteConfirmed Method " Url="html/e1ee9f22-009c-7ae7-3924-0f99d824cd07.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Details method">
+    <HelpKINode Title="StockController.Details Method " Url="html/ac0af6c0-046d-e0bd-eda1-13ea0bc93c56.htm" />
+    <HelpKINode Title="UsersController.Details Method " Url="html/d2c51e4a-0ebf-4233-6aef-964711af1567.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Dispose method">
+    <HelpKINode Title="OrdersController.Dispose Method " Url="html/9f4c14ca-abd6-31cc-8305-5005ccc2aef7.htm" />
+    <HelpKINode Title="StockController.Dispose Method " Url="html/daee8657-7339-549d-994f-7e789d9e5ec2.htm" />
+    <HelpKINode Title="UsersController.Dispose Method " Url="html/c87f592c-eefe-0342-4a50-a243d2a5ca82.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Edit method">
+    <HelpKINode Title="OrdersController.Edit Method " Url="html/329c17f5-75f8-25b6-ad48-e112e13142eb.htm" />
+    <HelpKINode Title="StockController.Edit Method " Url="html/ac25eeb3-f5e4-d38c-76de-6b5bd82442fc.htm" />
+    <HelpKINode Title="UsersController.Edit Method " Url="html/fbe288d1-6844-3889-ea63-6e924f2bcb6f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Email property" Url="html/973e9f4f-2404-aaef-4f71-9e285abfbf3e.htm" />
+  <HelpKINode Title="EncodePassword method" Url="html/e2e05daa-6a21-0f5e-df24-b8353f3ab0b5.htm" />
+  <HelpKINode Title="EncodePasswordMd5 method" Url="html/de5cc4a8-0f99-1dcb-46d3-70ea321ff471.htm" />
+  <HelpKINode Title="Enums class">
+    <HelpKINode Title="Enums Class" Url="html/87559043-8e46-6b43-0a45-ceb5d4a6aaeb.htm" />
+    <HelpKINode Title="about Enums class" Url="html/87559043-8e46-6b43-0a45-ceb5d4a6aaeb.htm" />
+    <HelpKINode Title="constructor" Url="html/b7664584-3143-0afe-9fa9-059ce737aa50.htm" />
+    <HelpKINode Title="methods" Url="html/20460719-3a5b-7e33-0527-714daa78d6f4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Enums.DrinkCategory enumeration" Url="html/4b4331c1-92e6-c565-dbcb-aa25c5f5a068.htm" />
+  <HelpKINode Title="Enums.Enums constructor" Url="html/b7664584-3143-0afe-9fa9-059ce737aa50.htm" />
+  <HelpKINode Title="Enums.Scenario enumeration" Url="html/b5ea4a94-fdc2-eb0b-fbff-c113ae56df40.htm" />
+  <HelpKINode Title="Enums.Special enumeration" Url="html/cef8c04c-76b0-7ea8-e4eb-a32fd63937b7.htm" />
+  <HelpKINode Title="Enums.UserRole enumeration" Url="html/50c4342c-bf61-94b0-9938-6c6a8f20daa6.htm" />
+  <HelpKINode Title="FilterConfig class">
+    <HelpKINode Title="FilterConfig Class" Url="html/2c7107da-e924-7857-3078-ff3395b7b398.htm" />
+    <HelpKINode Title="about FilterConfig class" Url="html/2c7107da-e924-7857-3078-ff3395b7b398.htm" />
+    <HelpKINode Title="constructor" Url="html/0b88829a-e701-b6c8-6508-625754e104e1.htm" />
+    <HelpKINode Title="methods" Url="html/69a82b4b-7238-6f65-ac85-69e2da121ec2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilterConfig.FilterConfig constructor" Url="html/0b88829a-e701-b6c8-6508-625754e104e1.htm" />
+  <HelpKINode Title="FilterConfig.RegisterGlobalFilters method" Url="html/c15f780d-a878-9358-89ef-ff79a1fa17da.htm" />
+  <HelpKINode Title="FirstName property" Url="html/865685c3-6a58-9cb6-368d-0efe7e4f85b2.htm" />
+  <HelpKINode Title="GeneratePassword method" Url="html/b0d4ec13-0f39-dad0-b806-062d2dc42472.htm" />
+  <HelpKINode Title="GetAllUsers method" Url="html/86de231a-f399-ef90-b1a0-89ca0fb10418.htm" />
+  <HelpKINode Title="GetCategories method" Url="html/b9368739-2c2c-a494-de68-3f3f0c2e6eb4.htm" />
+  <HelpKINode Title="GetStockItems method" Url="html/417b825e-f914-6bfe-dce7-a5bba9eb15bd.htm" />
+  <HelpKINode Title="GetUserRoleName method" Url="html/1c005770-eef4-73c8-8545-fce0a28c6613.htm" />
+  <HelpKINode Title="GetUserRoles method" Url="html/b095e293-b049-af7a-5dc3-3eff6d48d940.htm" />
+  <HelpKINode Title="HasConfirmed property" Url="html/25791c3a-c19a-fbc3-38d6-b0b05e06add3.htm" />
+  <HelpKINode Title="Helpers class">
+    <HelpKINode Title="Helpers Class" Url="html/dc915cc1-9634-412d-6b40-33a68e5bbb78.htm" />
+    <HelpKINode Title="about Helpers class" Url="html/dc915cc1-9634-412d-6b40-33a68e5bbb78.htm" />
+    <HelpKINode Title="constructor" Url="html/37ed49bb-2965-f250-0f17-38cee5707cf5.htm" />
+    <HelpKINode Title="methods" Url="html/638dd7cb-f739-9467-a785-c8c7b724b721.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Helpers.Base64Decode method" Url="html/9918d672-3143-23ab-f993-96ff6ffed519.htm" />
+  <HelpKINode Title="Helpers.Base64Encode method" Url="html/ecce2664-4431-3b8f-eee5-60212c7a1893.htm" />
+  <HelpKINode Title="Helpers.EncodePassword method" Url="html/e2e05daa-6a21-0f5e-df24-b8353f3ab0b5.htm" />
+  <HelpKINode Title="Helpers.EncodePasswordMd5 method" Url="html/de5cc4a8-0f99-1dcb-46d3-70ea321ff471.htm" />
+  <HelpKINode Title="Helpers.GeneratePassword method" Url="html/b0d4ec13-0f39-dad0-b806-062d2dc42472.htm" />
+  <HelpKINode Title="Helpers.Helpers constructor" Url="html/37ed49bb-2965-f250-0f17-38cee5707cf5.htm" />
+  <HelpKINode Title="HomeController class">
+    <HelpKINode Title="HomeController Class" Url="html/3951a21b-f09e-1559-1c64-fec98380ae49.htm" />
+    <HelpKINode Title="about HomeController class" Url="html/3951a21b-f09e-1559-1c64-fec98380ae49.htm" />
+    <HelpKINode Title="constructor" Url="html/6338f7f2-7082-73a1-3e36-9415ee48fbe7.htm" />
+    <HelpKINode Title="methods" Url="html/72c89120-e42a-5b9c-7d6a-9d4fa5144f74.htm" />
+    <HelpKINode Title="properties" Url="html/957f45a0-f728-7941-9eff-a50bce269681.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeController.HomeController constructor" Url="html/6338f7f2-7082-73a1-3e36-9415ee48fbe7.htm" />
+  <HelpKINode Title="HomeController.Index method" Url="html/85b4e68d-b77d-2ee6-9303-4a473361d878.htm" />
+  <HelpKINode Title="HomeController.Login method" Url="html/42a83cb2-7fe8-d384-0dba-c48dcf8eb7ea.htm" />
+  <HelpKINode Title="HomeController.Logout method" Url="html/1c48d0b8-12d2-2120-6012-b4327795ec73.htm" />
+  <HelpKINode Title="Index method">
+    <HelpKINode Title="HomeController.Index Method " Url="html/85b4e68d-b77d-2ee6-9303-4a473361d878.htm" />
+    <HelpKINode Title="OrdersController.Index Method " Url="html/e6f6e637-4a68-3207-de73-0a3eddf285b5.htm" />
+    <HelpKINode Title="StockController.Index Method " Url="html/6c232b95-e6ae-c297-9faa-a9e2b81cd776.htm" />
+    <HelpKINode Title="UsersController.Index Method " Url="html/061f3ada-657b-6353-3f93-6032ea4b5f4f.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IsAdmin property" Url="html/a77c3094-0fdc-fcd0-f49d-5097ab0977ce.htm" />
+  <HelpKINode Title="IsAuthenticated property" Url="html/204d0637-5400-941a-70b5-350949f84f85.htm" />
+  <HelpKINode Title="LastName property" Url="html/4a484b99-32ff-f7ff-66f4-7beda09b4d6b.htm" />
+  <HelpKINode Title="List method" Url="html/e12dda4e-a822-8f9d-1047-3aa5ecfa163e.htm" />
+  <HelpKINode Title="Login method" Url="html/42a83cb2-7fe8-d384-0dba-c48dcf8eb7ea.htm" />
+  <HelpKINode Title="Logout method" Url="html/1c48d0b8-12d2-2120-6012-b4327795ec73.htm" />
+  <HelpKINode Title="MvcApplication class">
+    <HelpKINode Title="MvcApplication Class" Url="html/789041f5-eb6e-eb7d-1db5-c36b9aa9085f.htm" />
+    <HelpKINode Title="about MvcApplication class" Url="html/789041f5-eb6e-eb7d-1db5-c36b9aa9085f.htm" />
+    <HelpKINode Title="constructor" Url="html/b9ef966a-9262-fb97-32f2-1c24da12c64d.htm" />
+    <HelpKINode Title="events" Url="html/0d9fa0a3-739c-bbe6-7a8c-5f4d983c8125.htm" />
+    <HelpKINode Title="methods" Url="html/de89f791-035d-47c9-395f-29478064d21e.htm" />
+    <HelpKINode Title="properties" Url="html/6feb0d42-0f5d-fae2-d5e9-e5b6aba17f21.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MvcApplication.Application_Start method" Url="html/cb393317-a942-6c22-640c-c96d5d689838.htm" />
+  <HelpKINode Title="MvcApplication.MvcApplication constructor" Url="html/b9ef966a-9262-fb97-32f2-1c24da12c64d.htm" />
+  <HelpKINode Title="Name property">
+    <HelpKINode Title="OrderItem.Name Property " Url="html/26812813-24f6-291d-1fee-a107b147d578.htm" />
+    <HelpKINode Title="StockItem.Name Property " Url="html/ea053b4d-73eb-a24a-ee52-adbd843cf994.htm" />
+  </HelpKINode>
+  <HelpKINode Title="NonAlcohol enumeration member" Url="html/4b4331c1-92e6-c565-dbcb-aa25c5f5a068.htm" />
+  <HelpKINode Title="OnModelCreating method" Url="html/bdbfd9e9-85ba-21bc-82db-613cda337048.htm" />
+  <HelpKINode Title="Order class">
+    <HelpKINode Title="Order Class" Url="html/e65c39bd-5f35-53d0-2dfb-6cb345aa3966.htm" />
+    <HelpKINode Title="about Order class" Url="html/e65c39bd-5f35-53d0-2dfb-6cb345aa3966.htm" />
+    <HelpKINode Title="constructor" Url="html/fd6c7180-06b8-13bf-3c24-4b60d44252ce.htm" />
+    <HelpKINode Title="methods" Url="html/2edc96c2-9275-353b-3cd8-0fd5c5c0e2a8.htm" />
+    <HelpKINode Title="properties" Url="html/235581f0-bba4-9f46-780a-e3063f0a19aa.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Order.HasConfirmed property" Url="html/25791c3a-c19a-fbc3-38d6-b0b05e06add3.htm" />
+  <HelpKINode Title="Order.Order constructor" Url="html/fd6c7180-06b8-13bf-3c24-4b60d44252ce.htm" />
+  <HelpKINode Title="Order.OrderId property" Url="html/ab8c16f9-da70-135a-a208-7003db9fa469.htm" />
+  <HelpKINode Title="Order.OrderItems property" Url="html/14f4b9bf-4ad3-be9a-81f9-b4be3dbe2258.htm" />
+  <HelpKINode Title="Order.TableNumber property" Url="html/e5b21f79-b96b-7964-a309-da73420609a5.htm" />
+  <HelpKINode Title="Order.TotalPrice property" Url="html/0540ca26-d7e4-84e3-0453-3283d7513bd8.htm" />
+  <HelpKINode Title="Order.TotalQuantity property" Url="html/8ac1fc04-9c8c-520a-fba9-1920d5f0dd75.htm" />
+  <HelpKINode Title="OrderBLL class">
+    <HelpKINode Title="OrderBLL Class" Url="html/64456438-0baa-c206-841e-3abf2c32dbe9.htm" />
+    <HelpKINode Title="about OrderBLL class" Url="html/64456438-0baa-c206-841e-3abf2c32dbe9.htm" />
+    <HelpKINode Title="methods" Url="html/06a1022d-6c98-a055-703e-90d699f1ff9a.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderBLL.CreateOrder method" Url="html/ab450fd0-17a1-0b8c-21c5-bb2e05bd6ee6.htm" />
+  <HelpKINode Title="OrderId enumeration member" Url="html/cef8c04c-76b0-7ea8-e4eb-a32fd63937b7.htm" />
+  <HelpKINode Title="OrderId property">
+    <HelpKINode Title="Order.OrderId Property " Url="html/ab8c16f9-da70-135a-a208-7003db9fa469.htm" />
+    <HelpKINode Title="OrderItem.OrderId Property " Url="html/ff3519e6-42c5-4c61-f798-332ded20e007.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderItem class">
+    <HelpKINode Title="OrderItem Class" Url="html/98dbae24-4397-af9f-2b08-b1e2dedf794c.htm" />
+    <HelpKINode Title="about OrderItem class" Url="html/98dbae24-4397-af9f-2b08-b1e2dedf794c.htm" />
+    <HelpKINode Title="constructor" Url="html/4d717773-b0b7-7463-abcc-66ad05c9ecf3.htm" />
+    <HelpKINode Title="methods" Url="html/b6d44bbc-4379-02ef-c3ec-8d6e87204e77.htm" />
+    <HelpKINode Title="properties" Url="html/ea160e08-4ead-d9f1-34e1-8bc9f320ebe2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrderItem.Name property" Url="html/26812813-24f6-291d-1fee-a107b147d578.htm" />
+  <HelpKINode Title="OrderItem.OrderId property" Url="html/ff3519e6-42c5-4c61-f798-332ded20e007.htm" />
+  <HelpKINode Title="OrderItem.OrderItem constructor" Url="html/4d717773-b0b7-7463-abcc-66ad05c9ecf3.htm" />
+  <HelpKINode Title="OrderItem.OrderItemId property" Url="html/e14e5d92-6808-a054-ac29-440513a21bc9.htm" />
+  <HelpKINode Title="OrderItem.Quantity property" Url="html/7ef97595-42ae-fc7c-89a7-5a805d906500.htm" />
+  <HelpKINode Title="OrderItem.StockItemId property" Url="html/64b206f4-5c40-0a7e-8ea1-e0e05edfbdd0.htm" />
+  <HelpKINode Title="OrderItem.SubTotal property" Url="html/8cf5224e-1009-e4d4-fd84-e784a3711bd5.htm" />
+  <HelpKINode Title="OrderItem.UnitPrice property" Url="html/95684a05-eba2-25d2-fc3d-30c35065b228.htm" />
+  <HelpKINode Title="OrderItemId property" Url="html/e14e5d92-6808-a054-ac29-440513a21bc9.htm" />
+  <HelpKINode Title="OrderItems property">
+    <HelpKINode Title="CashierContext.OrderItems Property " Url="html/20f2d87d-fec7-b858-7961-db16e824dd9b.htm" />
+    <HelpKINode Title="Order.OrderItems Property " Url="html/14f4b9bf-4ad3-be9a-81f9-b4be3dbe2258.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Orders property" Url="html/6fde34d5-5f89-44c9-a341-9ff101cc57d6.htm" />
+  <HelpKINode Title="OrdersController class">
+    <HelpKINode Title="OrdersController Class" Url="html/68f25365-8871-4ffe-c95b-1814e678dcb0.htm" />
+    <HelpKINode Title="about OrdersController class" Url="html/68f25365-8871-4ffe-c95b-1814e678dcb0.htm" />
+    <HelpKINode Title="constructor" Url="html/47ae47fe-9735-4bc9-54ab-caa8a1d88d5c.htm" />
+    <HelpKINode Title="methods" Url="html/e8f9d825-570c-e20d-f9a6-1227eb523c39.htm" />
+    <HelpKINode Title="properties" Url="html/647fd4e1-e1be-65e6-d2ba-c75501ead2c8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="OrdersController.CheckTableNumber method" Url="html/500b59ae-f0f6-4be7-0f8e-3ee7490e1857.htm" />
+  <HelpKINode Title="OrdersController.Complete method" Url="html/1fd9a675-0668-4777-3249-1ce5f10a349c.htm" />
+  <HelpKINode Title="OrdersController.Confirm method" Url="html/911dea8c-7432-8251-c27d-8c1759939f59.htm" />
+  <HelpKINode Title="OrdersController.Create method" Url="html/95ce5651-18ee-e4fb-835a-98b362b8e56c.htm" />
+  <HelpKINode Title="OrdersController.Dispose method" Url="html/9f4c14ca-abd6-31cc-8305-5005ccc2aef7.htm" />
+  <HelpKINode Title="OrdersController.Edit method" Url="html/329c17f5-75f8-25b6-ad48-e112e13142eb.htm" />
+  <HelpKINode Title="OrdersController.Index method" Url="html/e6f6e637-4a68-3207-de73-0a3eddf285b5.htm" />
+  <HelpKINode Title="OrdersController.List method" Url="html/e12dda4e-a822-8f9d-1047-3aa5ecfa163e.htm" />
+  <HelpKINode Title="OrdersController.OrdersController constructor" Url="html/47ae47fe-9735-4bc9-54ab-caa8a1d88d5c.htm" />
+  <HelpKINode Title="OrdersController.Remove method" Url="html/642f76d9-28af-ce4d-d807-a0f3e33b84a5.htm" />
+  <HelpKINode Title="Password property" Url="html/e0f9e05b-0235-fc2a-12cf-ee773c07eccf.htm" />
+  <HelpKINode Title="PhoneNumber property" Url="html/35a3af09-5088-94f8-9ede-75be713a39ef.htm" />
+  <HelpKINode Title="Price property" Url="html/984f95e8-57d9-d492-df2c-c9fc2aa02c88.htm" />
+  <HelpKINode Title="Quantity property" Url="html/7ef97595-42ae-fc7c-89a7-5a805d906500.htm" />
+  <HelpKINode Title="RegisterBundles method" Url="html/12463499-8750-8f6b-570d-3a4311ef9507.htm" />
+  <HelpKINode Title="RegisterGlobalFilters method" Url="html/c15f780d-a878-9358-89ef-ff79a1fa17da.htm" />
+  <HelpKINode Title="RegisterRoutes method" Url="html/3ca261ce-47bb-56fe-9a1a-f51b25780bf8.htm" />
+  <HelpKINode Title="Remove method" Url="html/642f76d9-28af-ce4d-d807-a0f3e33b84a5.htm" />
+  <HelpKINode Title="RouteConfig class">
+    <HelpKINode Title="RouteConfig Class" Url="html/0211a492-573b-91c0-86c9-9c4ad72eeab0.htm" />
+    <HelpKINode Title="about RouteConfig class" Url="html/0211a492-573b-91c0-86c9-9c4ad72eeab0.htm" />
+    <HelpKINode Title="constructor" Url="html/fe04d802-bcfc-fed8-bf32-6cff486170fe.htm" />
+    <HelpKINode Title="methods" Url="html/88cbcf14-b7f6-530b-3fca-144816fc98f7.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RouteConfig.RegisterRoutes method" Url="html/3ca261ce-47bb-56fe-9a1a-f51b25780bf8.htm" />
+  <HelpKINode Title="RouteConfig.RouteConfig constructor" Url="html/fe04d802-bcfc-fed8-bf32-6cff486170fe.htm" />
+  <HelpKINode Title="Salt property" Url="html/1d6e0120-2e32-eaee-6b86-e3cdd8cd767e.htm" />
+  <HelpKINode Title="Seed method" Url="html/5950aa0d-f9af-a136-3486-802fece60db5.htm" />
+  <HelpKINode Title="StockController class">
+    <HelpKINode Title="StockController Class" Url="html/a7a6cfc5-6e20-6fb8-cef3-be9745078037.htm" />
+    <HelpKINode Title="about StockController class" Url="html/a7a6cfc5-6e20-6fb8-cef3-be9745078037.htm" />
+    <HelpKINode Title="constructor" Url="html/e6fe195a-6780-6840-269c-3a894577de11.htm" />
+    <HelpKINode Title="methods" Url="html/1d21152c-5af8-e5d2-16da-42c88d3b70a3.htm" />
+    <HelpKINode Title="properties" Url="html/ac43ecc8-9e9a-20f5-ff29-b180a8edd5db.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StockController.Create method" Url="html/7adb11bc-274f-6304-e55b-2a7170a4761a.htm" />
+  <HelpKINode Title="StockController.Delete method" Url="html/01029d59-bb1c-ca93-18ed-88ed845914f5.htm" />
+  <HelpKINode Title="StockController.DeleteConfirmed method" Url="html/50b3ece4-2a67-25a6-d57b-fb7520e4ba0c.htm" />
+  <HelpKINode Title="StockController.Details method" Url="html/ac0af6c0-046d-e0bd-eda1-13ea0bc93c56.htm" />
+  <HelpKINode Title="StockController.Dispose method" Url="html/daee8657-7339-549d-994f-7e789d9e5ec2.htm" />
+  <HelpKINode Title="StockController.Edit method" Url="html/ac25eeb3-f5e4-d38c-76de-6b5bd82442fc.htm" />
+  <HelpKINode Title="StockController.Index method" Url="html/6c232b95-e6ae-c297-9faa-a9e2b81cd776.htm" />
+  <HelpKINode Title="StockController.StockController constructor" Url="html/e6fe195a-6780-6840-269c-3a894577de11.htm" />
+  <HelpKINode Title="StockItem class">
+    <HelpKINode Title="StockItem Class" Url="html/fabd525c-f955-fa81-61c1-78b818781d26.htm" />
+    <HelpKINode Title="about StockItem class" Url="html/fabd525c-f955-fa81-61c1-78b818781d26.htm" />
+    <HelpKINode Title="constructor" Url="html/c3fd9af2-9a50-c410-282d-c2ee627f696d.htm" />
+    <HelpKINode Title="methods" Url="html/ff1fbf25-6a6b-f093-8676-645ba5f9a3f0.htm" />
+    <HelpKINode Title="properties" Url="html/3990c054-651f-0e71-a342-52a743eaedcf.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StockItem.AvailableQuantity property" Url="html/bffa6430-2d01-5d23-40e3-079b2e805342.htm" />
+  <HelpKINode Title="StockItem.CategoryId property" Url="html/3e3a796b-79ea-85f6-1919-6e62ab80c649.htm" />
+  <HelpKINode Title="StockItem.Name property" Url="html/ea053b4d-73eb-a24a-ee52-adbd843cf994.htm" />
+  <HelpKINode Title="StockItem.Price property" Url="html/984f95e8-57d9-d492-df2c-c9fc2aa02c88.htm" />
+  <HelpKINode Title="StockItem.StockItem constructor" Url="html/c3fd9af2-9a50-c410-282d-c2ee627f696d.htm" />
+  <HelpKINode Title="StockItem.StockItemId property" Url="html/9508c0e8-7fb8-adb6-bdd9-e3b1d6ddb6c5.htm" />
+  <HelpKINode Title="StockItemId property">
+    <HelpKINode Title="OrderItem.StockItemId Property " Url="html/64b206f4-5c40-0a7e-8ea1-e0e05edfbdd0.htm" />
+    <HelpKINode Title="StockItem.StockItemId Property " Url="html/9508c0e8-7fb8-adb6-bdd9-e3b1d6ddb6c5.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StockItems property" Url="html/5b0a1682-b09f-f433-bfce-d8e533b25b25.htm" />
+  <HelpKINode Title="SubTotal property" Url="html/8cf5224e-1009-e4d4-fd84-e784a3711bd5.htm" />
+  <HelpKINode Title="TableNumber enumeration member" Url="html/cef8c04c-76b0-7ea8-e4eb-a32fd63937b7.htm" />
+  <HelpKINode Title="TableNumber property" Url="html/e5b21f79-b96b-7964-a309-da73420609a5.htm" />
+  <HelpKINode Title="TotalPrice property" Url="html/0540ca26-d7e4-84e3-0453-3283d7513bd8.htm" />
+  <HelpKINode Title="TotalQuantity property" Url="html/8ac1fc04-9c8c-520a-fba9-1920d5f0dd75.htm" />
+  <HelpKINode Title="UnitPrice property" Url="html/95684a05-eba2-25d2-fc3d-30c35065b228.htm" />
+  <HelpKINode Title="Update enumeration member" Url="html/b5ea4a94-fdc2-eb0b-fbff-c113ae56df40.htm" />
+  <HelpKINode Title="User class">
+    <HelpKINode Title="User Class" Url="html/eeb6243f-8c1a-165e-d538-e697bf62a29c.htm" />
+    <HelpKINode Title="about User class" Url="html/eeb6243f-8c1a-165e-d538-e697bf62a29c.htm" />
+    <HelpKINode Title="constructor" Url="html/05573488-8d4d-5c17-ee4a-2eb25529e74b.htm" />
+    <HelpKINode Title="methods" Url="html/b98e9ff1-1223-900e-ef11-48e5d88d2907.htm" />
+    <HelpKINode Title="properties" Url="html/6f1b053e-b366-d546-8a14-b9f1f55b083c.htm" />
+  </HelpKINode>
+  <HelpKINode Title="User enumeration member" Url="html/50c4342c-bf61-94b0-9938-6c6a8f20daa6.htm" />
+  <HelpKINode Title="User.CheckSum property" Url="html/1fb708de-19c7-b7e2-f60c-0847db5260eb.htm" />
+  <HelpKINode Title="User.Email property" Url="html/973e9f4f-2404-aaef-4f71-9e285abfbf3e.htm" />
+  <HelpKINode Title="User.FirstName property" Url="html/865685c3-6a58-9cb6-368d-0efe7e4f85b2.htm" />
+  <HelpKINode Title="User.LastName property" Url="html/4a484b99-32ff-f7ff-66f4-7beda09b4d6b.htm" />
+  <HelpKINode Title="User.Password property" Url="html/e0f9e05b-0235-fc2a-12cf-ee773c07eccf.htm" />
+  <HelpKINode Title="User.PhoneNumber property" Url="html/35a3af09-5088-94f8-9ede-75be713a39ef.htm" />
+  <HelpKINode Title="User.Salt property" Url="html/1d6e0120-2e32-eaee-6b86-e3cdd8cd767e.htm" />
+  <HelpKINode Title="User.User constructor" Url="html/05573488-8d4d-5c17-ee4a-2eb25529e74b.htm" />
+  <HelpKINode Title="User.UserId property" Url="html/9466e061-f3e8-2c84-caa3-180ee078ebaf.htm" />
+  <HelpKINode Title="User.UserRole property" Url="html/f6115fe4-995f-1f9e-2d22-44e4445557c5.htm" />
+  <HelpKINode Title="User.UserRoleName property" Url="html/45b4d1a3-ddec-cf9b-e62d-dad8773be78b.htm" />
+  <HelpKINode Title="UserBLL class">
+    <HelpKINode Title="UserBLL Class" Url="html/d7673571-94a5-d6c7-f6f6-cc223e319719.htm" />
+    <HelpKINode Title="about UserBLL class" Url="html/d7673571-94a5-d6c7-f6f6-cc223e319719.htm" />
+    <HelpKINode Title="constructor" Url="html/8a392889-4742-1302-5405-278dcf9477e0.htm" />
+    <HelpKINode Title="methods" Url="html/aed62de4-4b0e-e9d2-cf05-6a089ee1661d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UserBLL.AddSalt method" Url="html/31227466-d26c-a90c-2131-ace8b155dd41.htm" />
+  <HelpKINode Title="UserBLL.DecodeSalt method" Url="html/2c179b4f-c4c4-649a-397a-8fbf7a607845.htm" />
+  <HelpKINode Title="UserBLL.GetUserRoleName method" Url="html/1c005770-eef4-73c8-8545-fce0a28c6613.htm" />
+  <HelpKINode Title="UserBLL.GetUserRoles method" Url="html/b095e293-b049-af7a-5dc3-3eff6d48d940.htm" />
+  <HelpKINode Title="UserBLL.UserBLL constructor" Url="html/8a392889-4742-1302-5405-278dcf9477e0.htm" />
+  <HelpKINode Title="UserId property" Url="html/9466e061-f3e8-2c84-caa3-180ee078ebaf.htm" />
+  <HelpKINode Title="UserRole property" Url="html/f6115fe4-995f-1f9e-2d22-44e4445557c5.htm" />
+  <HelpKINode Title="UserRoleName property" Url="html/45b4d1a3-ddec-cf9b-e62d-dad8773be78b.htm" />
+  <HelpKINode Title="Users property" Url="html/dfe4312d-ef1e-7a63-42d7-0f339b0419a8.htm" />
+  <HelpKINode Title="UsersController class">
+    <HelpKINode Title="UsersController Class" Url="html/0dcfc849-9b75-63cd-15fb-5e29a5302893.htm" />
+    <HelpKINode Title="about UsersController class" Url="html/0dcfc849-9b75-63cd-15fb-5e29a5302893.htm" />
+    <HelpKINode Title="constructor" Url="html/6bc0f929-1bb7-e535-1b64-1942b7ecc411.htm" />
+    <HelpKINode Title="methods" Url="html/389a90f9-3078-716d-2587-3801557ca675.htm" />
+    <HelpKINode Title="properties" Url="html/4e0532bd-a07a-299b-e866-3eeea26a40b8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="UsersController.Create method" Url="html/4cffb024-c1d5-b1c8-7fb6-6a5b160d3918.htm" />
+  <HelpKINode Title="UsersController.Delete method" Url="html/0586a9c2-9ad5-9ac0-4c61-793810aa2bef.htm" />
+  <HelpKINode Title="UsersController.DeleteConfirmed method" Url="html/e1ee9f22-009c-7ae7-3924-0f99d824cd07.htm" />
+  <HelpKINode Title="UsersController.Details method" Url="html/d2c51e4a-0ebf-4233-6aef-964711af1567.htm" />
+  <HelpKINode Title="UsersController.Dispose method" Url="html/c87f592c-eefe-0342-4a50-a243d2a5ca82.htm" />
+  <HelpKINode Title="UsersController.Edit method" Url="html/fbe288d1-6844-3889-ea63-6e924f2bcb6f.htm" />
+  <HelpKINode Title="UsersController.Index method" Url="html/061f3ada-657b-6353-3f93-6032ea4b5f4f.htm" />
+  <HelpKINode Title="UsersController.UsersController constructor" Url="html/6bc0f929-1bb7-e535-1b64-1942b7ecc411.htm" />
+  <HelpKINode Title="Website namespace" Url="html/b2f98b70-f497-e576-41d6-a7eb6dbdcbf6.htm" />
+  <HelpKINode Title="Website.BLL namespace" Url="html/11af995a-d2b6-060d-4e11-3e30c5cded57.htm" />
+  <HelpKINode Title="Website.BLL.Helpers class" Url="html/dc915cc1-9634-412d-6b40-33a68e5bbb78.htm" />
+  <HelpKINode Title="Website.BLL.OrderBLL class" Url="html/64456438-0baa-c206-841e-3abf2c32dbe9.htm" />
+  <HelpKINode Title="Website.BLL.UserBLL class" Url="html/d7673571-94a5-d6c7-f6f6-cc223e319719.htm" />
+  <HelpKINode Title="Website.BundleConfig class" Url="html/d783c2a3-6de2-1d5f-f4d3-c0ad460e4d60.htm" />
+  <HelpKINode Title="Website.Controllers namespace" Url="html/7e037422-4e11-fae1-f3a4-aef3cf526f3a.htm" />
+  <HelpKINode Title="Website.Controllers.BaseController class" Url="html/c5e8c351-0804-c46c-af6c-2b1dafca3831.htm" />
+  <HelpKINode Title="Website.Controllers.HomeController class" Url="html/3951a21b-f09e-1559-1c64-fec98380ae49.htm" />
+  <HelpKINode Title="Website.Controllers.OrdersController class" Url="html/68f25365-8871-4ffe-c95b-1814e678dcb0.htm" />
+  <HelpKINode Title="Website.Controllers.StockController class" Url="html/a7a6cfc5-6e20-6fb8-cef3-be9745078037.htm" />
+  <HelpKINode Title="Website.Controllers.UsersController class" Url="html/0dcfc849-9b75-63cd-15fb-5e29a5302893.htm" />
+  <HelpKINode Title="Website.DAL namespace" Url="html/7c4a2773-b498-84a2-7f98-799135fefc97.htm" />
+  <HelpKINode Title="Website.DAL.CashierContext class" Url="html/fe27d86f-1269-2a88-fc8a-5e242f73540d.htm" />
+  <HelpKINode Title="Website.DAL.CashierInitializer class" Url="html/7c125d0f-a9a2-6612-b632-b4cb4ad3377c.htm" />
+  <HelpKINode Title="Website.FilterConfig class" Url="html/2c7107da-e924-7857-3078-ff3395b7b398.htm" />
+  <HelpKINode Title="Website.Models namespace" Url="html/d9a30a8d-fbf3-b7b3-9b73-9054d9f1b159.htm" />
+  <HelpKINode Title="Website.Models.Category class" Url="html/4280ce15-5cd4-9983-187a-2d018d2b3053.htm" />
+  <HelpKINode Title="Website.Models.Order class" Url="html/e65c39bd-5f35-53d0-2dfb-6cb345aa3966.htm" />
+  <HelpKINode Title="Website.Models.OrderItem class" Url="html/98dbae24-4397-af9f-2b08-b1e2dedf794c.htm" />
+  <HelpKINode Title="Website.Models.StockItem class" Url="html/fabd525c-f955-fa81-61c1-78b818781d26.htm" />
+  <HelpKINode Title="Website.Models.User class" Url="html/eeb6243f-8c1a-165e-d538-e697bf62a29c.htm" />
+  <HelpKINode Title="Website.MvcApplication class" Url="html/789041f5-eb6e-eb7d-1db5-c36b9aa9085f.htm" />
+  <HelpKINode Title="Website.RouteConfig class" Url="html/0211a492-573b-91c0-86c9-9c4ad72eeab0.htm" />
+  <HelpKINode Title="_auth property" Url="html/44be1cfc-4308-0b68-b483-354eb8cd0e30.htm" />
+</HelpKI>

@@ -1,14 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Web;
 
 namespace Website.BLL
 {
+    /// <summary>
+    /// This is a class that contains helper methods
+    /// </summary>
     public class Helpers
     {
+        /// <summary>
+        /// Generates a random password with a specific length
+        /// </summary>
+        /// <param name="length">determines the length of the password</param>
+        /// <returns></returns>
         public static string GeneratePassword(int length) //length of salt    
         {
             const string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789";
@@ -21,6 +26,12 @@ namespace Website.BLL
             }
             return new string(chars);
         }
+        /// <summary>
+        /// Encodes a given password with a given salt key
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static string EncodePassword(string pass, string salt) //encrypt password    
         {
             byte[] bytes = Encoding.Unicode.GetBytes(pass);
@@ -33,6 +44,11 @@ namespace Website.BLL
             //return Convert.ToBase64String(inArray);    
             return EncodePasswordMd5(Convert.ToBase64String(inArray));
         }
+        /// <summary>
+        /// Encrypt a given password with MD5
+        /// </summary>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public static string EncodePasswordMd5(string pass) //Encrypt using MD5    
         {
             Byte[] originalBytes;
@@ -45,6 +61,12 @@ namespace Website.BLL
             //Convert encoded bytes back to a 'readable' string    
             return BitConverter.ToString(encodedBytes);
         }
+        /// <summary>
+        /// Base class used for encoding 
+        /// </summary>
+        /// <param name="sData"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static string Base64Encode(string sData) // Encode    
         {
             try
@@ -59,6 +81,12 @@ namespace Website.BLL
                 throw new Exception("Error in base64Encode" + ex.Message);
             }
         }
+        /// <summary>
+        /// Base class used for decoding
+        /// </summary>
+        /// <param name="sData"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static string Base64Decode(string sData) //Decode    
         {
             try

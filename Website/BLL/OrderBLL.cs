@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using DAL;
 using Website.Models;
 
 namespace Website.BLL
 {
+    /// <summary>
+    /// This class handles all the logic for the orders
+    /// </summary>
     public static class OrderBLL
     {
+        /// <summary>
+        /// This method creates an order depending on inserted items and a tablenumber
+        /// </summary>
+        /// <param name="orderItems"></param>
+        /// <param name="tableNumber"></param>
+        /// <returns></returns>
         public static Order CreateOrder(List<OrderItem> orderItems, string tableNumber)
         {
             var order = new Order { HasConfirmed = false };

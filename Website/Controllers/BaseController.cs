@@ -1,20 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using BLL.Extensions;
-using Website.BLL;
-using Website.DAL;
 using Website.Models;
 
 namespace Website.Controllers
 {
+    /// <summary>
+    /// A base class used for determining wether the user is authenticated
+    /// </summary>
     public class BaseController : Controller
     {
+        /// <summary>
+        /// A protected property to determine if the user is authenticated used by the child classes 
+        /// </summary>
         protected AuthEntity _auth => CheckAuth();
 
+        /// <summary>
+        /// A method that checks wether the user is authenticated via sessions.
+        /// It also determines the user role
+        /// </summary>
+        /// <returns></returns>
         protected AuthEntity CheckAuth()
         {
             var entity = new AuthEntity();

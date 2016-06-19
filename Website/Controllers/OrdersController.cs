@@ -1,15 +1,16 @@
 ﻿using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using DAL;
-using Website.BLL;
 using Website.DAL;
 using Website.Models;
 using BLL.Extensions;
 
 namespace Website.Controllers
 {
+    /// <summary>
+    /// This is a controller that handles all the order actions in the project
+    /// </summary>
     public class OrdersController : BaseController
     {
         private CashierContext db = new CashierContext();
@@ -101,6 +102,11 @@ namespace Website.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Checks wether the tablenumber exists in the current orders
+        /// </summary>
+        /// <param name="tableNumber"></param>
+        /// <returns>Returns a create order view or a edit order view depending on this existance</returns>
         public ActionResult CheckTableNumber(int tableNumber)
         {
 
@@ -139,7 +145,6 @@ namespace Website.Controllers
         [HttpPost]
         public ActionResult Confirm(OrderItem[] orderItems)
         {
-
             var items = orderItems.ToList();
             var orderId = 0;
             var tableNumber = string.Empty;
@@ -236,6 +241,10 @@ namespace Website.Controllers
             return RedirectToAction("List");
         }
 
+        /// <summary>
+        /// Releases unmanaged resources and optionally releases managed resources.
+        /// </summary>
+        /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing)

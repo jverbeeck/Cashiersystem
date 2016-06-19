@@ -1,14 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using BLL.Extensions;
 using Website.Models;
 
 namespace Website.DAL
 {
+    /// <summary>
+    /// This class initializes the data form the database on first create
+    /// </summary>
     public class CashierInitializer : System.Data.Entity.DropCreateDatabaseIfModelChanges<CashierContext>
     {
+        /// <summary>
+        /// A method that should be overridden to actually add data to the context for seeding.
+        ///             The default implementation does nothing.
+        /// Populate the database with initial data
+        /// </summary>
+        /// <param name="context">The context to seed. </param>
         protected override void Seed(CashierContext context)
         {
             var users = new List<User>

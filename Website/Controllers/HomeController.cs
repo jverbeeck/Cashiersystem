@@ -1,21 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Web.Security;
-using System.Web.UI.WebControls;
 using BLL.Extensions;
 using DAL;
-using Website.BLL;
 using Website.Models;
 
 namespace Website.Controllers
 {
+    /// <summary>
+    /// The main controller used for login and logout
+    /// </summary>
     public class HomeController : BaseController
     {
         private readonly List<User> _users = DataAccess.GetAllUsers();
 
+        /// <summary>
+        /// Returns the first view an user encounters and lists the user in the database
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             if (_auth.IsAuthenticated)
@@ -27,6 +28,12 @@ namespace Website.Controllers
             return View(_users);
         }
 
+        /// <summary>
+        /// Log a user in if provided with the correct credentials
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
@@ -50,6 +57,10 @@ namespace Website.Controllers
             return View("Index", _users);
         }
 
+        /// <summary>
+        /// Logs a user out
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Logout()
         {
             System.Web.HttpContext.Current.Session.Clear();
