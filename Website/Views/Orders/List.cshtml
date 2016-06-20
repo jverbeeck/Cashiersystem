@@ -108,3 +108,12 @@
         </div>
     </fieldset>
 </div>
+
+<script>
+    function CreateOrderPost() {
+        var tableNumber = $('#tableNumber').val();
+        $.post('@Url.Action("CheckTableNumber","Orders")', { tableNumber: tableNumber }, function (details) {
+            $("body").html(details);
+        });
+    }
+</script>

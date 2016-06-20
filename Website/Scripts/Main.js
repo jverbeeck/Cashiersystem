@@ -141,12 +141,7 @@ function openCreateOrderDialog() {
     showTableNumberBox();
 }
 
-function CreateOrderPost() {
-    var tableNumber = $('#tableNumber').val();
-    $.post("CheckTableNumber", { tableNumber: tableNumber }, function (details) {
-        $("body").html(details);
-    });
-}
+
 
 
 //ORDER _ CREATE
